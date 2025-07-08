@@ -81,7 +81,7 @@ class Build : NukeBuild
                 .SetConfiguration(Configuration)
                 .SetAssemblyVersion(BuildVersion)
                 .SetFileVersion(BuildVersion)
-                .SetInformationalVersion($"{BuildVersion}+{GetGitCommitHash()}")
+                .SetInformationalVersion(BuildVersion)
                 .EnableNoRestore());
         });
 
@@ -119,7 +119,6 @@ class Build : NukeBuild
         {
             Console.WriteLine($"Build Version: {BuildVersion}");
             Console.WriteLine($"Configuration: {Configuration}");
-            Console.WriteLine($"Git Commit: {GetGitCommitHash()}");
         });
 
     string GetBuildVersion()
@@ -148,56 +147,8 @@ class Build : NukeBuild
             // AbcVersion not available, fallback to git-based versioning
         }
         
-        // Fallback: Simple version scheme using git commit count
-        var baseVersion = Version ?? "1.0.0";
-        
-        try
-        {
-            var commitCount = GetGitCommitCount();
-            if (commitCount > 0)
-            {
-                var parts = baseVersion.Split('.');
-                if (parts.Length >= 3)
-                {
-                    return $"{parts[0]}.{parts[1]}.{commitCount}";
-                }
-            }
-        }
-        catch
-        {
-            // Fallback to base version if git is not available
-        }
-        
-        return baseVersion;
+        // Fallback to base version
+        return Version ?? "1.0.0";
     }
 
-    string GetGitCommitHash()
-    {
-        try
-        {
-            var output = ProcessTasks.StartProcess("git", "rev-parse --short HEAD")
-                .AssertWaitForExit()
-                .Output.Select(x => x.Text).FirstOrDefault();
-            return output ?? "unknown";
-        }
-        catch
-        {
-            return "unknown";
-        }
-    }
-
-    int GetGitCommitCount()
-    {
-        try
-        {
-            var output = ProcessTasks.StartProcess("git", "rev-list --count HEAD")
-                .AssertWaitForExit()
-                .Output.Select(x => x.Text).FirstOrDefault();
-            return int.TryParse(output, out var count) ? count : 0;
-        }
-        catch
-        {
-            return 0;
-        }
-    }
 }

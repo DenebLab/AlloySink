@@ -27,6 +27,7 @@
         "CI",
         "Clean",
         "Compile",
+        "InstallAbcVersion",
         "Pack",
         "Restore",
         "Test"
