@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(./build.ps1 MakeSlimBuild)",
+      "Bash(./build.sh:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(dotnet test:*)",
+      "Bash(rg:*)",
+      "Bash(true)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(dotnet --info)",
+      "Bash(dotnet build:*)",
+      "Bash(grep:*)",
+      "Bash(dos2unix:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(cp:*)",
+      "Bash(gemini:*)",
+      "Bash(.build.ps1)",
+      "Bash(./build.ps1)",
+      "Bash(dotnet run:*)",
+      "Bash(/mnt/w/DenebLab/AlloySink/.nuke/temp/dotnet-unix/dotnet run --target Pack)",
+      "Bash(dotnet pack:*)",
+      "Bash(/mnt/w/DenebLab/AlloySink/.nuke/temp/dotnet-unix/dotnet pack --configuration Release --output ../../artifacts)",
+      "Bash(abcversion:*)",
+      "Bash(dotnet tool install:*)"
+    ],
+    "deny": []
+  }
+}
