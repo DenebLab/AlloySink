@@ -38,7 +38,8 @@ class Build : NukeBuild
     Project AlloySinkProject => Solution.GetProject("AlloySink");
     Project TestProject => Solution.GetProject("AlloySink.Tests");
 
-    string BuildVersion => GetBuildVersion();
+    string _cachedBuildVersion;
+    string BuildVersion => _cachedBuildVersion ??= GetBuildVersion();
 
     Target InstallAbcVersion => _ => _
         .Before(Restore)
