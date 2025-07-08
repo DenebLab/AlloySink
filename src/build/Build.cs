@@ -40,6 +40,22 @@ class Build : NukeBuild
 
     string BuildVersion => GetBuildVersion();
 
+    Target InstallAbcVersion => _ => _
+        .Before(Restore)
+        .Executes(() =>
+        {
+            try
+            {
+                ProcessTasks.StartProcess("dotnet", "tool install --global Deneblab.AbcVersionCmd")
+                    .AssertWaitForExit();
+                Console.WriteLine("AbcVersion tool installed successfully");
+            }
+            catch
+            {
+                Console.WriteLine("AbcVersion tool installation failed or already installed");
+            }
+        });
+
     Target Clean => _ => _
         .Before(Restore)
         .Executes(() =>
@@ -98,7 +114,7 @@ class Build : NukeBuild
         });
 
     Target CI => _ => _
-        .DependsOn(Clean, Test, Pack)
+        .DependsOn(InstallAbcVersion, Clean, Test, Pack)
         .Executes(() =>
         {
             Console.WriteLine($"Build Version: {BuildVersion}");
@@ -115,11 +131,26 @@ class Build : NukeBuild
             return envVersion;
         }
         
-        // Simple version scheme: Major.Minor.Patch
-        // For CI builds, could be enhanced with GitVersion later
+        // Try to use AbcVersion for semantic versioning
+        try
+        {
+            var output = ProcessTasks.StartProcess("abcversion", "-p semversion")
+                .AssertWaitForExit()
+                .Output.Select(x => x.Text).FirstOrDefault();
+            
+            if (!string.IsNullOrWhiteSpace(output))
+            {
+                return output.Trim();
+            }
+        }
+        catch
+        {
+            // AbcVersion not available, fallback to git-based versioning
+        }
+        
+        // Fallback: Simple version scheme using git commit count
         var baseVersion = Version ?? "1.0.0";
         
-        // If we have git, add build number based on commit count
         try
         {
             var commitCount = GetGitCommitCount();
