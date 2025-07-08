@@ -1,0 +1,50 @@
+﻿2025-07-08T10:11:25.3676521Z Current runner version: '2.325.0'
+2025-07-08T10:11:25.3701487Z ##[group]Runner Image Provisioner
+2025-07-08T10:11:25.3702382Z Hosted Compute Agent
+2025-07-08T10:11:25.3703067Z Version: 20250703.357
+2025-07-08T10:11:25.3703778Z Commit: 07daf62238a21140d93e045a38f3784d75c509e1
+2025-07-08T10:11:25.3704472Z Build Date: 2025-07-03T14:39:09Z
+2025-07-08T10:11:25.3705107Z ##[endgroup]
+2025-07-08T10:11:25.3705686Z ##[group]Operating System
+2025-07-08T10:11:25.3706247Z Ubuntu
+2025-07-08T10:11:25.3706705Z 24.04.2
+2025-07-08T10:11:25.3707266Z LTS
+2025-07-08T10:11:25.3707686Z ##[endgroup]
+2025-07-08T10:11:25.3708159Z ##[group]Runner Image
+2025-07-08T10:11:25.3708738Z Image: ubuntu-24.04
+2025-07-08T10:11:25.3709278Z Version: 20250622.1.0
+2025-07-08T10:11:25.3710256Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250622.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-07-08T10:11:25.3711652Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250622.1
+2025-07-08T10:11:25.3712977Z ##[endgroup]
+2025-07-08T10:11:25.3715581Z ##[group]GITHUB_TOKEN Permissions
+2025-07-08T10:11:25.3717746Z Actions: write
+2025-07-08T10:11:25.3718325Z Attestations: write
+2025-07-08T10:11:25.3718842Z Checks: write
+2025-07-08T10:11:25.3719758Z Contents: write
+2025-07-08T10:11:25.3720294Z Deployments: write
+2025-07-08T10:11:25.3720812Z Discussions: write
+2025-07-08T10:11:25.3721263Z Issues: write
+2025-07-08T10:11:25.3721828Z Metadata: read
+2025-07-08T10:11:25.3722348Z Models: read
+2025-07-08T10:11:25.3723095Z Packages: write
+2025-07-08T10:11:25.3723741Z Pages: write
+2025-07-08T10:11:25.3724225Z PullRequests: write
+2025-07-08T10:11:25.3724831Z RepositoryProjects: write
+2025-07-08T10:11:25.3725419Z SecurityEvents: write
+2025-07-08T10:11:25.3726050Z Statuses: write
+2025-07-08T10:11:25.3726595Z ##[endgroup]
+2025-07-08T10:11:25.3729044Z Secret source: Actions
+2025-07-08T10:11:25.3729962Z Prepare workflow directory
+2025-07-08T10:11:25.4110768Z Prepare all required actions
+2025-07-08T10:11:25.4148837Z Getting action download info
+2025-07-08T10:11:25.9157328Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-07-08T10:11:25.9158527Z Version: 4.2.2
+2025-07-08T10:11:25.9159952Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-07-08T10:11:25.9161157Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-07-08T10:11:25.9161919Z ##[endgroup]
+2025-07-08T10:11:26.0038328Z ##[group]Download immutable action package 'actions/setup-dotnet@v4'
+2025-07-08T10:11:26.0039372Z Version: 4.3.1
+2025-07-08T10:11:26.0040226Z Digest: sha256:c7f3f729e5ef5b59af173c4efb4b30240ef30b219a7c12a6fae9f099415f688c
+2025-07-08T10:11:26.0041192Z Source commit SHA: 67a3573c9a986a3f9c594539f4ab511d57bb3ce9
+2025-07-08T10:11:26.0041977Z ##[endgroup]
+2025-07-08T10:11:26.3139718Z Complete job name: build-and-publish

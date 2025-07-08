@@ -1,0 +1,10 @@
+﻿2025-07-08T10:11:37.5764160Z ##[group]Run dotnet restore src/AlloySink/AlloySink.csproj /p:TargetFramework=net8.0
+2025-07-08T10:11:37.5764744Z [36;1mdotnet restore src/AlloySink/AlloySink.csproj /p:TargetFramework=net8.0[0m
+2025-07-08T10:11:37.5820333Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:37.5820569Z env:
+2025-07-08T10:11:37.5820738Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:37.5820975Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:37.5821246Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:37.5821456Z ##[endgroup]
+2025-07-08T10:11:38.1362509Z   Determining projects to restore...
+2025-07-08T10:11:39.1110744Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 688 ms).

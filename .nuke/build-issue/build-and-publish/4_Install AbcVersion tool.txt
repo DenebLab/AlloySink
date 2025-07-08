@@ -1,0 +1,10 @@
+﻿2025-07-08T10:11:35.4371183Z ##[group]Run dotnet tool install --global Deneblab.AbcVersionCmd
+2025-07-08T10:11:35.4371743Z [36;1mdotnet tool install --global Deneblab.AbcVersionCmd[0m
+2025-07-08T10:11:35.4470948Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:35.4471207Z env:
+2025-07-08T10:11:35.4471386Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:35.4471831Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:35.4472115Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:35.4472334Z ##[endgroup]
+2025-07-08T10:11:37.3102306Z You can invoke the tool using the following command: abcversion
+2025-07-08T10:11:37.3103621Z Tool 'deneblab.abcversioncmd' (version '1.0.80') was successfully installed.

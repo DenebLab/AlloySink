@@ -29,7 +29,8 @@
       "Bash(dotnet pack:*)",
       "Bash(/mnt/w/DenebLab/AlloySink/.nuke/temp/dotnet-unix/dotnet pack --configuration Release --output ../../artifacts)",
       "Bash(abcversion:*)",
-      "Bash(dotnet tool install:*)"
+      "Bash(dotnet tool install:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }

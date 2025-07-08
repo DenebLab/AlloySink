@@ -1,0 +1,864 @@
+﻿2025-07-08T10:11:25.3677125Z Current runner version: '2.325.0'
+2025-07-08T10:11:25.3701512Z ##[group]Runner Image Provisioner
+2025-07-08T10:11:25.3702386Z Hosted Compute Agent
+2025-07-08T10:11:25.3703071Z Version: 20250703.357
+2025-07-08T10:11:25.3703783Z Commit: 07daf62238a21140d93e045a38f3784d75c509e1
+2025-07-08T10:11:25.3704475Z Build Date: 2025-07-03T14:39:09Z
+2025-07-08T10:11:25.3705110Z ##[endgroup]
+2025-07-08T10:11:25.3705690Z ##[group]Operating System
+2025-07-08T10:11:25.3706251Z Ubuntu
+2025-07-08T10:11:25.3706708Z 24.04.2
+2025-07-08T10:11:25.3707268Z LTS
+2025-07-08T10:11:25.3707689Z ##[endgroup]
+2025-07-08T10:11:25.3708162Z ##[group]Runner Image
+2025-07-08T10:11:25.3708741Z Image: ubuntu-24.04
+2025-07-08T10:11:25.3709281Z Version: 20250622.1.0
+2025-07-08T10:11:25.3710260Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250622.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-07-08T10:11:25.3711818Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250622.1
+2025-07-08T10:11:25.3712982Z ##[endgroup]
+2025-07-08T10:11:25.3715588Z ##[group]GITHUB_TOKEN Permissions
+2025-07-08T10:11:25.3717767Z Actions: write
+2025-07-08T10:11:25.3718328Z Attestations: write
+2025-07-08T10:11:25.3718845Z Checks: write
+2025-07-08T10:11:25.3719766Z Contents: write
+2025-07-08T10:11:25.3720298Z Deployments: write
+2025-07-08T10:11:25.3720815Z Discussions: write
+2025-07-08T10:11:25.3721266Z Issues: write
+2025-07-08T10:11:25.3721831Z Metadata: read
+2025-07-08T10:11:25.3722351Z Models: read
+2025-07-08T10:11:25.3723102Z Packages: write
+2025-07-08T10:11:25.3723745Z Pages: write
+2025-07-08T10:11:25.3724228Z PullRequests: write
+2025-07-08T10:11:25.3724835Z RepositoryProjects: write
+2025-07-08T10:11:25.3725422Z SecurityEvents: write
+2025-07-08T10:11:25.3726054Z Statuses: write
+2025-07-08T10:11:25.3726598Z ##[endgroup]
+2025-07-08T10:11:25.3729065Z Secret source: Actions
+2025-07-08T10:11:25.3729969Z Prepare workflow directory
+2025-07-08T10:11:25.4110800Z Prepare all required actions
+2025-07-08T10:11:25.4148884Z Getting action download info
+2025-07-08T10:11:25.9157365Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-07-08T10:11:25.9158536Z Version: 4.2.2
+2025-07-08T10:11:25.9159967Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-07-08T10:11:25.9161168Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-07-08T10:11:25.9161923Z ##[endgroup]
+2025-07-08T10:11:26.0038364Z ##[group]Download immutable action package 'actions/setup-dotnet@v4'
+2025-07-08T10:11:26.0039377Z Version: 4.3.1
+2025-07-08T10:11:26.0040232Z Digest: sha256:c7f3f729e5ef5b59af173c4efb4b30240ef30b219a7c12a6fae9f099415f688c
+2025-07-08T10:11:26.0041197Z Source commit SHA: 67a3573c9a986a3f9c594539f4ab511d57bb3ce9
+2025-07-08T10:11:26.0041982Z ##[endgroup]
+2025-07-08T10:11:26.3139748Z Complete job name: build-and-publish
+2025-07-08T10:11:26.3868754Z ##[group]Run actions/checkout@v4
+2025-07-08T10:11:26.3869686Z with:
+2025-07-08T10:11:26.3870111Z   fetch-depth: 0
+2025-07-08T10:11:26.3870572Z   repository: DenebLab/AlloySink
+2025-07-08T10:11:26.3871371Z   token: ***
+2025-07-08T10:11:26.3871786Z   ssh-strict: true
+2025-07-08T10:11:26.3872202Z   ssh-user: git
+2025-07-08T10:11:26.3872636Z   persist-credentials: true
+2025-07-08T10:11:26.3873282Z   clean: true
+2025-07-08T10:11:26.3873733Z   sparse-checkout-cone-mode: true
+2025-07-08T10:11:26.3874253Z   fetch-tags: false
+2025-07-08T10:11:26.3874673Z   show-progress: true
+2025-07-08T10:11:26.3875104Z   lfs: false
+2025-07-08T10:11:26.3875491Z   submodules: false
+2025-07-08T10:11:26.3875932Z   set-safe-directory: true
+2025-07-08T10:11:26.3876654Z env:
+2025-07-08T10:11:26.3877054Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:26.3877565Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:26.3878142Z ##[endgroup]
+2025-07-08T10:11:26.4970119Z Syncing repository: DenebLab/AlloySink
+2025-07-08T10:11:26.4972133Z ##[group]Getting Git version info
+2025-07-08T10:11:26.4973206Z Working directory is '/home/runner/work/AlloySink/AlloySink'
+2025-07-08T10:11:26.4974662Z [command]/usr/bin/git version
+2025-07-08T10:11:26.5011196Z git version 2.49.0
+2025-07-08T10:11:26.5038061Z ##[endgroup]
+2025-07-08T10:11:26.5052573Z Temporarily overriding HOME='/home/runner/work/_temp/b06cb6a8-a9fe-499c-8507-6b39d2f3f7f4' before making global git config changes
+2025-07-08T10:11:26.5054980Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-08T10:11:26.5058212Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AlloySink/AlloySink
+2025-07-08T10:11:26.5092396Z Deleting the contents of '/home/runner/work/AlloySink/AlloySink'
+2025-07-08T10:11:26.5096331Z ##[group]Initializing the repository
+2025-07-08T10:11:26.5100084Z [command]/usr/bin/git init /home/runner/work/AlloySink/AlloySink
+2025-07-08T10:11:26.5170334Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-07-08T10:11:26.5171785Z hint: is subject to change. To configure the initial branch name to use in all
+2025-07-08T10:11:26.5172719Z hint: of your new repositories, which will suppress this warning, call:
+2025-07-08T10:11:26.5173962Z hint:
+2025-07-08T10:11:26.5174920Z hint: 	git config --global init.defaultBranch <name>
+2025-07-08T10:11:26.5176059Z hint:
+2025-07-08T10:11:26.5177299Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-07-08T10:11:26.5178991Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-07-08T10:11:26.5179832Z hint:
+2025-07-08T10:11:26.5180243Z hint: 	git branch -m <name>
+2025-07-08T10:11:26.5180994Z Initialized empty Git repository in /home/runner/work/AlloySink/AlloySink/.git/
+2025-07-08T10:11:26.5189439Z [command]/usr/bin/git remote add origin https://github.com/DenebLab/AlloySink
+2025-07-08T10:11:26.5219613Z ##[endgroup]
+2025-07-08T10:11:26.5220935Z ##[group]Disabling automatic garbage collection
+2025-07-08T10:11:26.5223289Z [command]/usr/bin/git config --local gc.auto 0
+2025-07-08T10:11:26.5250806Z ##[endgroup]
+2025-07-08T10:11:26.5251961Z ##[group]Setting up auth
+2025-07-08T10:11:26.5257229Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-08T10:11:26.5286359Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-08T10:11:26.5569285Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-08T10:11:26.5598404Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-08T10:11:26.5819448Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-07-08T10:11:26.5856439Z ##[endgroup]
+2025-07-08T10:11:26.5857765Z ##[group]Fetching the repository
+2025-07-08T10:11:26.5864962Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-07-08T10:11:26.8576245Z From https://github.com/DenebLab/AlloySink
+2025-07-08T10:11:26.8577748Z  * [new branch]      production -> origin/production
+2025-07-08T10:11:26.8610596Z [command]/usr/bin/git branch --list --remote origin/production
+2025-07-08T10:11:26.8633017Z   origin/production
+2025-07-08T10:11:26.8642302Z [command]/usr/bin/git rev-parse refs/remotes/origin/production
+2025-07-08T10:11:26.8662053Z de56913b3e5e2a3b69d29d97f179d6fdddb89067
+2025-07-08T10:11:26.8667955Z ##[endgroup]
+2025-07-08T10:11:26.8669085Z ##[group]Determining the checkout info
+2025-07-08T10:11:26.8670240Z ##[endgroup]
+2025-07-08T10:11:26.8674371Z [command]/usr/bin/git sparse-checkout disable
+2025-07-08T10:11:26.8712983Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-07-08T10:11:26.8739298Z ##[group]Checking out the ref
+2025-07-08T10:11:26.8743387Z [command]/usr/bin/git checkout --progress --force -B production refs/remotes/origin/production
+2025-07-08T10:11:26.8818951Z Switched to a new branch 'production'
+2025-07-08T10:11:26.8822291Z branch 'production' set up to track 'origin/production'.
+2025-07-08T10:11:26.8830051Z ##[endgroup]
+2025-07-08T10:11:26.8863979Z [command]/usr/bin/git log -1 --format=%H
+2025-07-08T10:11:26.8885836Z de56913b3e5e2a3b69d29d97f179d6fdddb89067
+2025-07-08T10:11:26.9156923Z ##[group]Run actions/setup-dotnet@v4
+2025-07-08T10:11:26.9158126Z with:
+2025-07-08T10:11:26.9158943Z   dotnet-version: 9.0.x
+2025-07-08T10:11:26.9159915Z   cache: false
+2025-07-08T10:11:26.9160743Z env:
+2025-07-08T10:11:26.9161553Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:26.9162660Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:26.9164175Z ##[endgroup]
+2025-07-08T10:11:27.0974558Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+2025-07-08T10:11:28.0295823Z dotnet-install: Attempting to download using aka.ms link https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz
+2025-07-08T10:11:28.2218747Z dotnet-install: Remote file https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz size is 31286412 bytes.
+2025-07-08T10:11:28.2221057Z dotnet-install: Extracting archive from https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz
+2025-07-08T10:11:28.8265882Z dotnet-install: Downloaded file size is 31286412 bytes.
+2025-07-08T10:11:28.8266640Z dotnet-install: The remote and local file sizes are equal.
+2025-07-08T10:11:28.8559715Z dotnet-install: Installed version is 8.0.17
+2025-07-08T10:11:28.8617778Z dotnet-install: Adding to current process PATH: `/usr/share/dotnet`. Note: This change will be visible only when sourcing script.
+2025-07-08T10:11:28.8619342Z dotnet-install: Note that the script does not resolve dependencies during installation.
+2025-07-08T10:11:28.8620947Z dotnet-install: To check the list of dependencies, go to https://learn.microsoft.com/dotnet/core/install, select your operating system and check the "Dependencies" section.
+2025-07-08T10:11:28.8622292Z dotnet-install: Installation finished successfully.
+2025-07-08T10:11:28.8649412Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --channel 9.0
+2025-07-08T10:11:29.5266169Z dotnet-install: Attempting to download using aka.ms link https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz
+2025-07-08T10:11:30.6429193Z dotnet-install: Remote file https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz size is 218099607 bytes.
+2025-07-08T10:11:30.6433523Z dotnet-install: Extracting archive from https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz
+2025-07-08T10:11:35.1563735Z dotnet-install: Downloaded file size is 218099607 bytes.
+2025-07-08T10:11:35.1565345Z dotnet-install: The remote and local file sizes are equal.
+2025-07-08T10:11:35.4184455Z dotnet-install: Installed version is 9.0.301
+2025-07-08T10:11:35.4242065Z dotnet-install: Adding to current process PATH: `/usr/share/dotnet`. Note: This change will be visible only when sourcing script.
+2025-07-08T10:11:35.4244660Z dotnet-install: Note that the script does not resolve dependencies during installation.
+2025-07-08T10:11:35.4246073Z dotnet-install: To check the list of dependencies, go to https://learn.microsoft.com/dotnet/core/install, select your operating system and check the "Dependencies" section.
+2025-07-08T10:11:35.4247320Z dotnet-install: Installation finished successfully.
+2025-07-08T10:11:35.4371195Z ##[group]Run dotnet tool install --global Deneblab.AbcVersionCmd
+2025-07-08T10:11:35.4371747Z [36;1mdotnet tool install --global Deneblab.AbcVersionCmd[0m
+2025-07-08T10:11:35.4470959Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:35.4471210Z env:
+2025-07-08T10:11:35.4471388Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:35.4471834Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:35.4472118Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:35.4472337Z ##[endgroup]
+2025-07-08T10:11:37.3102344Z You can invoke the tool using the following command: abcversion
+2025-07-08T10:11:37.3103628Z Tool 'deneblab.abcversioncmd' (version '1.0.80') was successfully installed.
+2025-07-08T10:11:37.3313976Z ##[group]Run VERSION=$(abcversion -p semversion)
+2025-07-08T10:11:37.3314484Z [36;1mVERSION=$(abcversion -p semversion)[0m
+2025-07-08T10:11:37.3314804Z [36;1mecho "version=$VERSION" >> $GITHUB_OUTPUT[0m
+2025-07-08T10:11:37.3315096Z [36;1mecho "Using version: $VERSION"[0m
+2025-07-08T10:11:37.3371650Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:37.3371890Z env:
+2025-07-08T10:11:37.3372060Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:37.3372314Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:37.3372609Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:37.3373021Z ##[endgroup]
+2025-07-08T10:11:37.5639848Z Using version: 0.1.4
+2025-07-08T10:11:37.5764172Z ##[group]Run dotnet restore src/AlloySink/AlloySink.csproj /p:TargetFramework=net8.0
+2025-07-08T10:11:37.5764748Z [36;1mdotnet restore src/AlloySink/AlloySink.csproj /p:TargetFramework=net8.0[0m
+2025-07-08T10:11:37.5820339Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:37.5820571Z env:
+2025-07-08T10:11:37.5820740Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:37.5820977Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:37.5821248Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:37.5821458Z ##[endgroup]
+2025-07-08T10:11:38.1362547Z   Determining projects to restore...
+2025-07-08T10:11:39.1110778Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 688 ms).
+2025-07-08T10:11:39.1439691Z ##[group]Run dotnet build src/AlloySink/AlloySink.csproj --configuration Release /p:TargetFramework=net8.0 /p:Version=0.1.4
+2025-07-08T10:11:39.1441181Z [36;1mdotnet build src/AlloySink/AlloySink.csproj --configuration Release /p:TargetFramework=net8.0 /p:Version=0.1.4[0m
+2025-07-08T10:11:39.1498154Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:39.1498397Z env:
+2025-07-08T10:11:39.1498576Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:39.1498823Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:39.1499117Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:39.1499340Z ##[endgroup]
+2025-07-08T10:11:39.9113782Z   Determining projects to restore...
+2025-07-08T10:11:40.4578095Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 240 ms).
+2025-07-08T10:11:42.7447662Z   AlloySink -> /home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Release/net8.0/Deneblab.AlloySink.dll
+2025-07-08T10:11:42.7656012Z 
+2025-07-08T10:11:42.7662387Z Build succeeded.
+2025-07-08T10:11:42.7663035Z     0 Warning(s)
+2025-07-08T10:11:42.7663348Z     0 Error(s)
+2025-07-08T10:11:42.7669565Z 
+2025-07-08T10:11:42.7669917Z Time Elapsed 00:00:02.29
+2025-07-08T10:11:42.7926616Z ##[group]Run dotnet restore src/AlloySink.sln
+2025-07-08T10:11:42.7927228Z [36;1mdotnet restore src/AlloySink.sln[0m
+2025-07-08T10:11:42.8009154Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:42.8009388Z env:
+2025-07-08T10:11:42.8009562Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:42.8009809Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:42.8010097Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:42.8010319Z ##[endgroup]
+2025-07-08T10:11:43.5741793Z   Determining projects to restore...
+2025-07-08T10:11:44.1148468Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 176 ms).
+2025-07-08T10:11:46.1653189Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj (in 2.25 sec).
+2025-07-08T10:11:46.2094504Z ##[group]Run dotnet build src/AlloySink.sln --configuration Release /p:Version=0.1.4
+2025-07-08T10:11:46.2095109Z [36;1mdotnet build src/AlloySink.sln --configuration Release /p:Version=0.1.4[0m
+2025-07-08T10:11:46.2155323Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:46.2155767Z env:
+2025-07-08T10:11:46.2155946Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:46.2156185Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:46.2156482Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:46.2156702Z ##[endgroup]
+2025-07-08T10:11:46.7640362Z   Determining projects to restore...
+2025-07-08T10:11:47.3822254Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj (in 296 ms).
+2025-07-08T10:11:47.3823809Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 282 ms).
+2025-07-08T10:11:47.7591376Z   AlloySink -> /home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Release/net8.0/Deneblab.AlloySink.dll
+2025-07-08T10:11:48.4224934Z   AlloySink.Tests -> /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Release/net8.0/AlloySink.Tests.dll
+2025-07-08T10:11:48.4416406Z 
+2025-07-08T10:11:48.4424649Z Build succeeded.
+2025-07-08T10:11:48.4434278Z     0 Warning(s)
+2025-07-08T10:11:48.4435326Z     0 Error(s)
+2025-07-08T10:11:48.4435535Z 
+2025-07-08T10:11:48.4435711Z Time Elapsed 00:00:02.02
+2025-07-08T10:11:48.4771904Z ##[group]Run dotnet test src/AlloySink.Tests/AlloySink.Tests.csproj --no-restore --verbosity normal
+2025-07-08T10:11:48.4772591Z [36;1mdotnet test src/AlloySink.Tests/AlloySink.Tests.csproj --no-restore --verbosity normal[0m
+2025-07-08T10:11:48.4829083Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:48.4829306Z env:
+2025-07-08T10:11:48.4829478Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:48.4829734Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:48.4830029Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:48.4830250Z ##[endgroup]
+2025-07-08T10:11:48.7665652Z Build started 07/08/2025 10:11:48.
+2025-07-08T10:11:49.1294888Z      1>Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" on node 1 (VSTest target(s)).
+2025-07-08T10:11:49.1295926Z      1>BuildProject:
+2025-07-08T10:11:49.1296289Z          Build started, please wait...
+2025-07-08T10:11:49.2254254Z      1>Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" (1) is building "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" (1:2) on node 1 (default targets).
+2025-07-08T10:11:49.2256320Z      1>PrepareForBuild:
+2025-07-08T10:11:49.2256717Z          Creating directory "bin/Debug/net8.0/".
+2025-07-08T10:11:49.2263939Z          Creating directory "obj/Debug/net8.0/".
+2025-07-08T10:11:49.2266203Z          Creating directory "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/refint/".
+2025-07-08T10:11:49.2268491Z          Creating directory "obj/Debug/net8.0/ref".
+2025-07-08T10:11:49.4802198Z    1:2>Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" (1:2) is building "/home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj" (2:2) on node 1 (default targets).
+2025-07-08T10:11:49.4817691Z      2>PrepareForBuild:
+2025-07-08T10:11:49.4818131Z          Creating directory "bin/Debug/net8.0/".
+2025-07-08T10:11:49.4818684Z          Creating directory "obj/Debug/net8.0/".
+2025-07-08T10:11:49.4819518Z          Creating directory "/home/runner/work/AlloySink/AlloySink/src/AlloySink/obj/Debug/net8.0/refint/".
+2025-07-08T10:11:49.4820386Z          Creating directory "obj/Debug/net8.0/ref".
+2025-07-08T10:11:49.6988442Z        _GenerateSourceLinkFile:
+2025-07-08T10:11:49.6992484Z          Updating Source Link file 'obj/Debug/net8.0/AlloySink.sourcelink.json'.
+2025-07-08T10:11:49.7105977Z        CoreCompile:
+2025-07-08T10:11:49.7271201Z          /usr/share/dotnet/dotnet exec "/usr/share/dotnet/sdk/9.0.301/Roslyn/bincore/csc.dll" /noconfig /unsafe- /checked- /nowarn:1701,1702,1701,1702 /fullpaths /nostdlib+ /errorreport:prompt /warn:8 /define:TRACE;DEBUG;NET;NET8_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER /highentropyva+ /nullable:enable /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.CSharp.dll /reference:/home/runner/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll /reference:/home/runner/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.VisualBasic.Core.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.VisualBasic.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.Win32.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.Win32.Registry.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/mscorlib.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/netstandard.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.AppContext.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Buffers.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Concurrent.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Immutable.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.NonGeneric.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Specialized.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.Annotations.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.DataAnnotations.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.EventBasedAsync.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.TypeConverter.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Configuration.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Console.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Core.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.Common.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.DataSetExtensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Contracts.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Debug.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.DiagnosticSource.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.FileVersionInfo.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Process.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.StackTrace.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.TextWriterTraceListener.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Tools.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.TraceSource.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Tracing.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Drawing.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Drawing.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Dynamic.Runtime.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Formats.Asn1.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Formats.Tar.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.Calendars.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.Brotli.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.FileSystem.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.ZipFile.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.DriveInfo.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.Watcher.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.IsolatedStorage.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.MemoryMappedFiles.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Pipes.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Pipes.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.UnmanagedMemoryStream.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Expressions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Parallel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Queryable.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Memory.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Http.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Http.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.HttpListener.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Mail.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.NameResolution.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.NetworkInformation.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Ping.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Quic.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Requests.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Security.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.ServicePoint.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Sockets.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebClient.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebHeaderCollection.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebProxy.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebSockets.Client.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebSockets.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Numerics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Numerics.Vectors.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ObjectModel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.DispatchProxy.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.ILGeneration.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.Lightweight.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Metadata.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.TypeExtensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.Reader.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.ResourceManager.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.Writer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.CompilerServices.Unsafe.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.CompilerServices.VisualC.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Handles.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.JavaScript.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.RuntimeInformation.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Intrinsics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Loader.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Numerics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Formatters.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Xml.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Claims.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Algorithms.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Cng.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Csp.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Encoding.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.OpenSsl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.X509Certificates.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Principal.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Principal.Windows.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.SecureString.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ServiceModel.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ServiceProcess.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.CodePages.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encodings.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.RegularExpressions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Channels.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Overlapped.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Dataflow.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Parallel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Thread.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.ThreadPool.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Timer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Transactions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Transactions.Local.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ValueTuple.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Web.HttpUtility.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Windows.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.Linq.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.ReaderWriter.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.Serialization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XDocument.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XmlDocument.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XmlSerializer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XPath.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XPath.XDocument.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/WindowsBase.dll /debug+ /debug:portable /filealign:512 /optimize- /out:obj/Debug/net8.0/Deneblab.AlloySink.dll /refout:obj/Debug/net8.0/refint/Deneblab.AlloySink.dll /target:library /warnaserror- /utf8output /deterministic+ /sourcelink:obj/Debug/net8.0/AlloySink.sourcelink.json /langversion:12.0 /embed:obj/Debug/net8.0/AlloySink.GlobalUsings.g.cs /embed:"obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" /embed:obj/Debug/net8.0/AlloySink.AssemblyInfo.cs /analyzerconfig:obj/Debug/net8.0/AlloySink.GeneratedMSBuildEditorConfig.editorconfig /analyzerconfig:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_8_default.globalconfig /analyzer:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/targets/../analyzers/Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll /analyzer:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/targets/../analyzers/Microsoft.CodeAnalysis.NetAnalyzers.dll /analyzer:/home/runner/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.ComInterfaceGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.JavaScript.JSImportGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.LibraryImportGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.SourceGeneration.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/System.Text.Json.SourceGeneration.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/System.Text.RegularExpressions.Generator.dll AlloyClient.cs AlloySink.cs AlloySinkOptions.cs Example.cs LogEntry.cs OtlpLogFormatter.cs obj/Debug/net8.0/AlloySink.GlobalUsings.g.cs "obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" obj/Debug/net8.0/AlloySink.AssemblyInfo.cs /warnaserror+:NU1605,SYSLIB0011
+2025-07-08T10:11:49.8955125Z          CompilerServer: server - server processed compilation - AlloySink (net8.0)
+2025-07-08T10:11:49.9235657Z        CopyFilesToOutputDirectory:
+2025-07-08T10:11:49.9241118Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink/obj/Debug/net8.0/Deneblab.AlloySink.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Debug/net8.0/Deneblab.AlloySink.dll".
+2025-07-08T10:11:49.9247500Z          Copying reference assembly from "obj/Debug/net8.0/refint/Deneblab.AlloySink.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink/obj/Debug/net8.0/ref/Deneblab.AlloySink.dll".
+2025-07-08T10:11:49.9251881Z          AlloySink -> /home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Debug/net8.0/Deneblab.AlloySink.dll
+2025-07-08T10:11:49.9263507Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink/obj/Debug/net8.0/Deneblab.AlloySink.pdb" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Debug/net8.0/Deneblab.AlloySink.pdb".
+2025-07-08T10:11:49.9431110Z      2>Done Building Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj" (default targets).
+2025-07-08T10:11:50.0180963Z      1>_GenerateSourceLinkFile:
+2025-07-08T10:11:50.0181701Z          Updating Source Link file 'obj/Debug/net8.0/AlloySink.Tests.sourcelink.json'.
+2025-07-08T10:11:50.0267052Z        CoreCompile:
+2025-07-08T10:11:50.0427772Z          /usr/share/dotnet/dotnet exec "/usr/share/dotnet/sdk/9.0.301/Roslyn/bincore/csc.dll" /noconfig /unsafe- /checked- /nowarn:1701,1702,1701,1702 /fullpaths /nostdlib+ /errorreport:prompt /warn:8 /define:TRACE;DEBUG;NET;NET8_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER /highentropyva+ /nullable:enable /reference:/home/runner/.nuget/packages/castle.core/5.1.1/lib/net6.0/Castle.Core.dll /reference:/home/runner/work/AlloySink/AlloySink/src/AlloySink/obj/Debug/net8.0/ref/Deneblab.AlloySink.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.CSharp.dll /reference:/home/runner/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll /reference:/home/runner/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CommunicationUtilities.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CoreUtilities.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CrossPlatEngine.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.PlatformAbstractions.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.Utilities.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.VisualBasic.Core.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.VisualBasic.dll /reference:/home/runner/.nuget/packages/microsoft.codecoverage/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.CodeCoverage.Shim.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.Common.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.Win32.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/Microsoft.Win32.Registry.dll /reference:/home/runner/.nuget/packages/moq/4.20.69/lib/net6.0/Moq.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/mscorlib.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/netstandard.dll /reference:/home/runner/.nuget/packages/newtonsoft.json/13.0.1/lib/netstandard2.0/Newtonsoft.Json.dll /reference:/home/runner/.nuget/packages/nuget.frameworks/5.11.0/lib/netstandard2.0/NuGet.Frameworks.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.AppContext.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Buffers.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Concurrent.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Immutable.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.NonGeneric.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Collections.Specialized.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.Annotations.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.DataAnnotations.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.EventBasedAsync.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ComponentModel.TypeConverter.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Configuration.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Console.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Core.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.Common.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.DataSetExtensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Data.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Contracts.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Debug.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.DiagnosticSource.dll /reference:/home/runner/.nuget/packages/system.diagnostics.eventlog/6.0.0/lib/net6.0/System.Diagnostics.EventLog.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.FileVersionInfo.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Process.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.StackTrace.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.TextWriterTraceListener.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Tools.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.TraceSource.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Diagnostics.Tracing.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Drawing.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Drawing.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Dynamic.Runtime.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Formats.Asn1.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Formats.Tar.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.Calendars.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Globalization.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.Brotli.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.FileSystem.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Compression.ZipFile.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.DriveInfo.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.FileSystem.Watcher.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.IsolatedStorage.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.MemoryMappedFiles.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Pipes.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.Pipes.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.IO.UnmanagedMemoryStream.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Expressions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Parallel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Linq.Queryable.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Memory.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Http.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Http.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.HttpListener.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Mail.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.NameResolution.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.NetworkInformation.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Ping.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Quic.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Requests.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Security.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.ServicePoint.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.Sockets.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebClient.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebHeaderCollection.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebProxy.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebSockets.Client.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Net.WebSockets.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Numerics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Numerics.Vectors.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ObjectModel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.DispatchProxy.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.ILGeneration.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Emit.Lightweight.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Metadata.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Reflection.TypeExtensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.Reader.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.ResourceManager.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Resources.Writer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.CompilerServices.Unsafe.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.CompilerServices.VisualC.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Handles.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.JavaScript.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.InteropServices.RuntimeInformation.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Intrinsics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Loader.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Numerics.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Formatters.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Runtime.Serialization.Xml.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.AccessControl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Claims.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Algorithms.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Cng.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Csp.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Encoding.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.OpenSsl.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.Primitives.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Cryptography.X509Certificates.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Principal.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.Principal.Windows.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Security.SecureString.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ServiceModel.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ServiceProcess.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.CodePages.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encoding.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Encodings.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.Json.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Text.RegularExpressions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Channels.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Overlapped.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Dataflow.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Extensions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Tasks.Parallel.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Thread.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.ThreadPool.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Threading.Timer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Transactions.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Transactions.Local.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.ValueTuple.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Web.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Web.HttpUtility.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Windows.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.Linq.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.ReaderWriter.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.Serialization.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XDocument.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XmlDocument.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XmlSerializer.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XPath.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/System.Xml.XPath.XDocument.dll /reference:/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/testhost.dll /reference:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/ref/net8.0/WindowsBase.dll /reference:/home/runner/.nuget/packages/xunit.abstractions/2.0.3/lib/netstandard2.0/xunit.abstractions.dll /reference:/home/runner/.nuget/packages/xunit.assert/2.4.2/lib/netstandard1.1/xunit.assert.dll /reference:/home/runner/.nuget/packages/xunit.extensibility.core/2.4.2/lib/netstandard1.1/xunit.core.dll /reference:/home/runner/.nuget/packages/xunit.extensibility.execution/2.4.2/lib/netstandard1.1/xunit.execution.dotnet.dll /debug+ /debug:portable /filealign:512 /optimize- /out:obj/Debug/net8.0/AlloySink.Tests.dll /refout:obj/Debug/net8.0/refint/AlloySink.Tests.dll /target:exe /warnaserror- /utf8output /deterministic+ /sourcelink:obj/Debug/net8.0/AlloySink.Tests.sourcelink.json /langversion:12.0 /embed:/home/runner/.nuget/packages/microsoft.net.test.sdk/17.6.0/build/netcoreapp3.1/Microsoft.NET.Test.Sdk.Program.cs /embed:obj/Debug/net8.0/AlloySink.Tests.GlobalUsings.g.cs /embed:"obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" /embed:obj/Debug/net8.0/AlloySink.Tests.AssemblyInfo.cs /analyzerconfig:obj/Debug/net8.0/AlloySink.Tests.GeneratedMSBuildEditorConfig.editorconfig /analyzerconfig:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_8_default.globalconfig /analyzer:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/targets/../analyzers/Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll /analyzer:/usr/share/dotnet/sdk/9.0.301/Sdks/Microsoft.NET.Sdk/targets/../analyzers/Microsoft.CodeAnalysis.NetAnalyzers.dll /analyzer:/home/runner/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll /analyzer:/home/runner/.nuget/packages/xunit.analyzers/1.0.0/analyzers/dotnet/cs/xunit.analyzers.dll /analyzer:/home/runner/.nuget/packages/xunit.analyzers/1.0.0/analyzers/dotnet/cs/xunit.analyzers.fixes.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.ComInterfaceGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.JavaScript.JSImportGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.LibraryImportGenerator.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/Microsoft.Interop.SourceGeneration.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/System.Text.Json.SourceGeneration.dll /analyzer:/home/runner/.nuget/packages/microsoft.netcore.app.ref/8.0.17/analyzers/dotnet/cs/System.Text.RegularExpressions.Generator.dll AlloyClientTests.cs AlloySinkIntegrationTests.cs AlloySinkOptionsTests.cs LogEntryTests.cs OtlpLogFormatterTests.cs TestHelpers.cs /home/runner/.nuget/packages/microsoft.net.test.sdk/17.6.0/build/netcoreapp3.1/Microsoft.NET.Test.Sdk.Program.cs obj/Debug/net8.0/AlloySink.Tests.GlobalUsings.g.cs "obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" obj/Debug/net8.0/AlloySink.Tests.AssemblyInfo.cs /warnaserror+:NU1605,SYSLIB0011
+2025-07-08T10:11:50.2491753Z          CompilerServer: server - server processed compilation - AlloySink.Tests (net8.0)
+2025-07-08T10:11:50.2575940Z        _CopyFilesMarkedCopyLocal:
+2025-07-08T10:11:50.2577431Z          Copying file from "/home/runner/.nuget/packages/castle.core/5.1.1/lib/net6.0/Castle.Core.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Castle.Core.dll".
+2025-07-08T10:11:50.2582291Z          Copying file from "/home/runner/.nuget/packages/microsoft.codecoverage/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.CodeCoverage.Shim.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll".
+2025-07-08T10:11:50.2595648Z          Copying file from "/home/runner/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll".
+2025-07-08T10:11:50.2599353Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CoreUtilities.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.TestPlatform.CoreUtilities.dll".
+2025-07-08T10:11:50.2603353Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.PlatformAbstractions.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.TestPlatform.PlatformAbstractions.dll".
+2025-07-08T10:11:50.2622746Z          Copying file from "/home/runner/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll".
+2025-07-08T10:11:50.2627210Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll".
+2025-07-08T10:11:50.2631565Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CommunicationUtilities.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.TestPlatform.CommunicationUtilities.dll".
+2025-07-08T10:11:50.2635458Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.Utilities.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.TestPlatform.Utilities.dll".
+2025-07-08T10:11:50.2639101Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.Common.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.VisualStudio.TestPlatform.Common.dll".
+2025-07-08T10:11:50.2642562Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/testhost.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/testhost.dll".
+2025-07-08T10:11:50.2653347Z          Copying file from "/home/runner/.nuget/packages/moq/4.20.69/lib/net6.0/Moq.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Moq.dll".
+2025-07-08T10:11:50.2655633Z          Copying file from "/home/runner/.nuget/packages/newtonsoft.json/13.0.1/lib/netstandard2.0/Newtonsoft.Json.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Newtonsoft.Json.dll".
+2025-07-08T10:11:50.2658243Z          Copying file from "/home/runner/.nuget/packages/nuget.frameworks/5.11.0/lib/netstandard2.0/NuGet.Frameworks.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/NuGet.Frameworks.dll".
+2025-07-08T10:11:50.2661117Z          Copying file from "/home/runner/.nuget/packages/system.diagnostics.eventlog/6.0.0/lib/net6.0/System.Diagnostics.EventLog.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/System.Diagnostics.EventLog.dll".
+2025-07-08T10:11:50.2664316Z          Copying file from "/home/runner/.nuget/packages/xunit.abstractions/2.0.3/lib/netstandard2.0/xunit.abstractions.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.abstractions.dll".
+2025-07-08T10:11:50.2669248Z          Copying file from "/home/runner/.nuget/packages/xunit.assert/2.4.2/lib/netstandard1.1/xunit.assert.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.assert.dll".
+2025-07-08T10:11:50.2673036Z          Copying file from "/home/runner/.nuget/packages/xunit.extensibility.core/2.4.2/lib/netstandard1.1/xunit.core.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.core.dll".
+2025-07-08T10:11:50.2680070Z          Copying file from "/home/runner/.nuget/packages/xunit.extensibility.execution/2.4.2/lib/netstandard1.1/xunit.execution.dotnet.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.execution.dotnet.dll".
+2025-07-08T10:11:50.2681862Z          Creating directory "bin/Debug/net8.0/cs".
+2025-07-08T10:11:50.2684131Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/Microsoft.TestPlatform.CrossPlatEngine.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Microsoft.TestPlatform.CrossPlatEngine.dll".
+2025-07-08T10:11:50.2686222Z          Creating directory "bin/Debug/net8.0/cs".
+2025-07-08T10:11:50.2688463Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2690830Z          Creating directory "bin/Debug/net8.0/de".
+2025-07-08T10:11:50.2693605Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/de/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/de/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2697606Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2699922Z          Creating directory "bin/Debug/net8.0/es".
+2025-07-08T10:11:50.2702278Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/es/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/es/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2709521Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/es/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/es/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2713534Z          Creating directory "bin/Debug/net8.0/fr".
+2025-07-08T10:11:50.2716998Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/fr/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2721014Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/fr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2723472Z          Creating directory "bin/Debug/net8.0/de".
+2025-07-08T10:11:50.2724823Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/de/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/de/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2726157Z          Creating directory "bin/Debug/net8.0/it".
+2025-07-08T10:11:50.2726435Z          Creating directory "bin/Debug/net8.0/it".
+2025-07-08T10:11:50.2727764Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/it/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/it/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2729956Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/it/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/it/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2731126Z          Creating directory "bin/Debug/net8.0/ja".
+2025-07-08T10:11:50.2731394Z          Creating directory "bin/Debug/net8.0/ja".
+2025-07-08T10:11:50.2732559Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ja/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2733995Z          Creating directory "bin/Debug/net8.0/ko".
+2025-07-08T10:11:50.2735363Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ko/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2737539Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ko/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ko/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2739605Z          Creating directory "bin/Debug/net8.0/pl".
+2025-07-08T10:11:50.2741146Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/pl/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pl/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2742493Z          Creating directory "bin/Debug/net8.0/pt-BR".
+2025-07-08T10:11:50.2743867Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2746117Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/pt-BR/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pt-BR/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2747433Z          Creating directory "bin/Debug/net8.0/ru".
+2025-07-08T10:11:50.2748635Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ru/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2750834Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ru/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2752164Z          Creating directory "bin/Debug/net8.0/tr".
+2025-07-08T10:11:50.2753437Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/tr/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2755656Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/tr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/tr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2757173Z          Creating directory "bin/Debug/net8.0/zh-Hans".
+2025-07-08T10:11:50.2759432Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2763869Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/zh-Hans/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hans/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2766589Z          Creating directory "bin/Debug/net8.0/zh-Hant".
+2025-07-08T10:11:50.2768882Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2772228Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2775770Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2779798Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/cs/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/cs/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2784107Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/cs/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/cs/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2788161Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/de/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/de/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2792179Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/de/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/de/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2796352Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/de/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/de/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2800460Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/es/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/es/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2803037Z          Creating directory "bin/Debug/net8.0/pl".
+2025-07-08T10:11:50.2805261Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/pl/Microsoft.TestPlatform.CoreUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CoreUtilities.resources.dll".
+2025-07-08T10:11:50.2809084Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/es/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/es/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2813635Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.objectmodel/17.6.0/lib/netcoreapp3.1/ja/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ja/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll".
+2025-07-08T10:11:50.2817845Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/es/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/es/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2822203Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/fr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2826442Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2830403Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/it/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/it/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2834615Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/fr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2838598Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/it/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/it/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2842554Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/it/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/it/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2846483Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ja/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2850408Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ja/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ja/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2854375Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ja/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ja/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2858258Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ko/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2862245Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ko/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ko/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2866147Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ko/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ko/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2870186Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2874187Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pl/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pl/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2878020Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2881877Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pt-BR/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pt-BR/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2885861Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pl/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pl/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2889689Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/pt-BR/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/pt-BR/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2893728Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ru/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2897557Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ru/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ru/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2901311Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/ru/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/ru/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2905302Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/tr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2909212Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/tr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/tr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2913204Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/tr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/tr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2917419Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2921711Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll".
+2025-07-08T10:11:50.2926149Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hans/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hans/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2929830Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll".
+2025-07-08T10:11:50.2933982Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2938012Z          Copying file from "/home/runner/.nuget/packages/microsoft.testplatform.testhost/17.6.0/lib/netcoreapp3.1/zh-Hans/Microsoft.VisualStudio.TestPlatform.Common.resources.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/zh-Hans/Microsoft.VisualStudio.TestPlatform.Common.resources.dll".
+2025-07-08T10:11:50.2940366Z          Creating directory "bin/Debug/net8.0/runtimes/win/lib/net6.0".
+2025-07-08T10:11:50.2941047Z          Creating directory "bin/Debug/net8.0/runtimes/win/lib/net6.0".
+2025-07-08T10:11:50.2942689Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Debug/net8.0/Deneblab.AlloySink.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Deneblab.AlloySink.dll".
+2025-07-08T10:11:50.2945801Z          Copying file from "/home/runner/.nuget/packages/system.diagnostics.eventlog/6.0.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll".
+2025-07-08T10:11:50.2949082Z          Copying file from "/home/runner/.nuget/packages/system.diagnostics.eventlog/6.0.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll".
+2025-07-08T10:11:50.2952145Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Debug/net8.0/Deneblab.AlloySink.pdb" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/Deneblab.AlloySink.pdb".
+2025-07-08T10:11:50.2954323Z          Creating "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/AlloySin.6DDCA110.Up2Date" because "AlwaysCreate" was specified.
+2025-07-08T10:11:50.2955758Z          Touching "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/AlloySin.6DDCA110.Up2Date".
+2025-07-08T10:11:50.2956690Z        _CopyOutOfDateSourceItemsToOutputDirectory:
+2025-07-08T10:11:50.2958706Z          Copying file from "/home/runner/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll".
+2025-07-08T10:11:50.2962080Z          Copying file from "/home/runner/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.runner.utility.netcoreapp10.dll".
+2025-07-08T10:11:50.2965282Z          Copying file from "/home/runner/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/xunit.runner.reporters.netcoreapp10.dll".
+2025-07-08T10:11:50.3638825Z        CopyFilesToOutputDirectory:
+2025-07-08T10:11:50.3642446Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/AlloySink.Tests.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/AlloySink.Tests.dll".
+2025-07-08T10:11:50.3648492Z          Copying reference assembly from "obj/Debug/net8.0/refint/AlloySink.Tests.dll" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/ref/AlloySink.Tests.dll".
+2025-07-08T10:11:50.3652541Z          AlloySink.Tests -> /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/AlloySink.Tests.dll
+2025-07-08T10:11:50.3657710Z          Copying file from "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/obj/Debug/net8.0/AlloySink.Tests.pdb" to "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/AlloySink.Tests.pdb".
+2025-07-08T10:11:50.3748904Z      1>Done Building Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" (default targets).
+2025-07-08T10:11:50.3759978Z      1>BuildProject:
+2025-07-08T10:11:50.3760316Z          Build completed.
+2025-07-08T10:11:50.3760531Z          
+2025-07-08T10:11:50.3804523Z Test run for /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/bin/Debug/net8.0/AlloySink.Tests.dll (.NETCoreApp,Version=v8.0)
+2025-07-08T10:11:50.4311663Z VSTest version 17.14.0 (x64)
+2025-07-08T10:11:50.4357406Z 
+2025-07-08T10:11:50.5169058Z Starting test execution, please wait...
+2025-07-08T10:11:50.5421786Z A total of 1 test files matched the specified pattern.
+2025-07-08T10:11:50.9093419Z [xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 8.0.17)
+2025-07-08T10:11:51.3075948Z [xUnit.net 00:00:00.41]   Discovering: AlloySink.Tests
+2025-07-08T10:11:51.3703516Z [xUnit.net 00:00:00.48]   Discovered:  AlloySink.Tests
+2025-07-08T10:11:51.3744120Z [xUnit.net 00:00:00.48]   Starting:    AlloySink.Tests
+2025-07-08T10:11:51.5332496Z   Passed AlloySink.Tests.AlloySinkOptionsTests.AlloyEndpoint_AcceptsValidUrls(endpoint: "https://alloy.example.com:4318") [3 ms]
+2025-07-08T10:11:51.5338307Z   Passed AlloySink.Tests.AlloySinkOptionsTests.AlloyEndpoint_AcceptsValidUrls(endpoint: "http://192.168.1.100:4318") [< 1 ms]
+2025-07-08T10:11:51.5340431Z   Passed AlloySink.Tests.AlloySinkOptionsTests.AlloyEndpoint_AcceptsValidUrls(endpoint: "http://localhost:4318") [< 1 ms]
+2025-07-08T10:11:51.5347482Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithEmptyCollection_ReturnsEmptyString [4 ms]
+2025-07-08T10:11:51.5353237Z   Passed AlloySink.Tests.LogEntryTests.Attributes_CanBeModified [9 ms]
+2025-07-08T10:11:51.5355355Z [xUnit.net 00:00:00.61]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 10) [FAIL]
+2025-07-08T10:11:51.5377146Z [xUnit.net 00:00:00.62]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 5) [FAIL]
+2025-07-08T10:11:51.5379097Z [xUnit.net 00:00:00.62]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 50) [FAIL]
+2025-07-08T10:11:51.5380871Z [xUnit.net 00:00:00.62]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 1) [FAIL]
+2025-07-08T10:11:51.5382515Z [xUnit.net 00:00:00.62]     AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithRetryLogic_AttemptsMultipleTimes [FAIL]
+2025-07-08T10:11:51.5384394Z [xUnit.net 00:00:00.62]     AlloySink.Tests.AlloyClientTests.Constructor_InitializesWithOptions [FAIL]
+2025-07-08T10:11:51.5385949Z [xUnit.net 00:00:00.63]     AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithValidLogEntries_FormatsAndSendsCorrectly [FAIL]
+2025-07-08T10:11:51.5387474Z [xUnit.net 00:00:00.63]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_AfterDispose_IgnoresNewLogs [FAIL]
+2025-07-08T10:11:51.5389013Z [xUnit.net 00:00:00.64]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_ConcurrentLogging_HandlesMultipleThreads [FAIL]
+2025-07-08T10:11:51.5390454Z   Passed AlloySink.Tests.AlloySinkOptionsTests.BatchSize_AcceptsPositiveValues(batchSize: 1000) [< 1 ms]
+2025-07-08T10:11:51.5391820Z   Passed AlloySink.Tests.AlloySinkOptionsTests.BatchSize_AcceptsPositiveValues(batchSize: 10) [< 1 ms]
+2025-07-08T10:11:51.5393306Z   Passed AlloySink.Tests.AlloySinkOptionsTests.BatchSize_AcceptsPositiveValues(batchSize: 1) [< 1 ms]
+2025-07-08T10:11:51.5394494Z   Passed AlloySink.Tests.AlloySinkOptionsTests.Properties_CanBeSet [2 ms]
+2025-07-08T10:11:51.5395506Z   Passed AlloySink.Tests.AlloySinkOptionsTests.Constructor_SetsDefaultValues [< 1 ms]
+2025-07-08T10:11:51.5396758Z   Passed AlloySink.Tests.AlloySinkOptionsTests.MaxRetries_AcceptsNonNegativeValues(maxRetries: 10) [< 1 ms]
+2025-07-08T10:11:51.5398161Z   Passed AlloySink.Tests.AlloySinkOptionsTests.MaxRetries_AcceptsNonNegativeValues(maxRetries: 0) [< 1 ms]
+2025-07-08T10:11:51.5399557Z   Passed AlloySink.Tests.AlloySinkOptionsTests.MaxRetries_AcceptsNonNegativeValues(maxRetries: 1) [< 1 ms]
+2025-07-08T10:11:51.5400775Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Error) [6 ms]
+2025-07-08T10:11:51.5401837Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Information) [1 ms]
+2025-07-08T10:11:51.5404253Z [xUnit.net 00:00:00.61]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5405987Z [xUnit.net 00:00:00.61]       Stack Trace:
+2025-07-08T10:11:51.5406858Z [xUnit.net 00:00:00.61]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5407986Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5409649Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5411709Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5414585Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(239,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize)
+2025-07-08T10:11:51.5416704Z [xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5418612Z [xUnit.net 00:00:00.62]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5420240Z [xUnit.net 00:00:00.62]       Stack Trace:
+2025-07-08T10:11:51.5421099Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5422219Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5424027Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5426309Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5429013Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(239,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize)
+2025-07-08T10:11:51.5430973Z [xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5433171Z [xUnit.net 00:00:00.62]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5434906Z [xUnit.net 00:00:00.62]       Stack Trace:
+2025-07-08T10:11:51.5435780Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5437005Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5438654Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5440775Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5443802Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(239,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize)
+2025-07-08T10:11:51.5445812Z [xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5447892Z [xUnit.net 00:00:00.62]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5449667Z [xUnit.net 00:00:00.62]       Stack Trace:
+2025-07-08T10:11:51.5450569Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5451774Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5453683Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5455864Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5458637Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(239,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize)
+2025-07-08T10:11:51.5460888Z [xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5461832Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Trace) [< 1 ms]
+2025-07-08T10:11:51.5463187Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Critical) [< 1 ms]
+2025-07-08T10:11:51.5464293Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Debug) [< 1 ms]
+2025-07-08T10:11:51.5465364Z   Passed AlloySink.Tests.LogEntryTests.Level_AcceptsAllLogLevels(level: Warning) [< 1 ms]
+2025-07-08T10:11:51.5466718Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 10) [1 ms]
+2025-07-08T10:11:51.5467758Z   Error Message:
+2025-07-08T10:11:51.5469459Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5471029Z   Stack Trace:
+2025-07-08T10:11:51.5471610Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5472501Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5474121Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5475922Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5478273Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 239
+2025-07-08T10:11:51.5480093Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5481295Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 5) [< 1 ms]
+2025-07-08T10:11:51.5482354Z   Error Message:
+2025-07-08T10:11:51.5484019Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5485552Z   Stack Trace:
+2025-07-08T10:11:51.5486147Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5487021Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5488346Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5490182Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5492520Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 239
+2025-07-08T10:11:51.5494531Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5495670Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 50) [< 1 ms]
+2025-07-08T10:11:51.5496817Z   Error Message:
+2025-07-08T10:11:51.5498273Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5499831Z   Stack Trace:
+2025-07-08T10:11:51.5500433Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5501620Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5503166Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5504980Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5507317Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 239
+2025-07-08T10:11:51.5509135Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5510249Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(batchSize: 1) [< 1 ms]
+2025-07-08T10:11:51.5511285Z   Error Message:
+2025-07-08T10:11:51.5586723Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5588380Z   Stack Trace:
+2025-07-08T10:11:51.5588976Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5589889Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5591209Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5593129Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5595398Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithDifferentBatchSizes_HandlesBatching(Int32 batchSize) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 239
+2025-07-08T10:11:51.5597199Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5599109Z [xUnit.net 00:00:00.62]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5626930Z [xUnit.net 00:00:00.62]       Stack Trace:
+2025-07-08T10:11:51.5629297Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5631848Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5635873Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5638312Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(87,0): at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithRetryLogic_AttemptsMultipleTimes()
+2025-07-08T10:11:51.5640112Z [xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5642153Z [xUnit.net 00:00:00.62]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5644019Z [xUnit.net 00:00:00.62]       Stack Trace:
+2025-07-08T10:11:51.5644920Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5646096Z [xUnit.net 00:00:00.62]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5647825Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5650578Z [xUnit.net 00:00:00.62]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(22,0): at AlloySink.Tests.AlloyClientTests.Constructor_InitializesWithOptions()
+2025-07-08T10:11:51.5652663Z [xUnit.net 00:00:00.62]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5654577Z [xUnit.net 00:00:00.62]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5656980Z [xUnit.net 00:00:00.63]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5658762Z [xUnit.net 00:00:00.63]       Stack Trace:
+2025-07-08T10:11:51.5659921Z [xUnit.net 00:00:00.63]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5661109Z [xUnit.net 00:00:00.63]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5662980Z [xUnit.net 00:00:00.63]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5665436Z [xUnit.net 00:00:00.63]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(53,0): at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithValidLogEntries_FormatsAndSendsCorrectly()
+2025-07-08T10:11:51.5667228Z [xUnit.net 00:00:00.63]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5669282Z [xUnit.net 00:00:00.63]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5671042Z [xUnit.net 00:00:00.63]       Stack Trace:
+2025-07-08T10:11:51.5671941Z [xUnit.net 00:00:00.63]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5673312Z [xUnit.net 00:00:00.63]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5675081Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5677250Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5679794Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(212,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_AfterDispose_IgnoresNewLogs()
+2025-07-08T10:11:51.5681688Z [xUnit.net 00:00:00.64]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5683970Z [xUnit.net 00:00:00.64]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5685693Z [xUnit.net 00:00:00.64]       Stack Trace:
+2025-07-08T10:11:51.5686593Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5687789Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5692320Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5694475Z [xUnit.net 00:00:00.64]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_Dispose_HandlesGracefulShutdown [FAIL]
+2025-07-08T10:11:51.5696270Z [xUnit.net 00:00:00.64]     AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithEmptyCollection_ReturnsTrue [FAIL]
+2025-07-08T10:11:51.5697994Z [xUnit.net 00:00:00.64]     AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "http://192.168.1.100:4318/") [FAIL]
+2025-07-08T10:11:51.5699667Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_FlushAsync_SendsPendingLogs [FAIL]
+2025-07-08T10:11:51.5701254Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogErrorAsync_WithException_HandlesException [FAIL]
+2025-07-08T10:11:51.5703258Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "http://localhost:4318") [FAIL]
+2025-07-08T10:11:51.5705250Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "https://alloy.example.com:4318") [FAIL]
+2025-07-08T10:11:51.5707259Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithComplexLogEntry_HandlesAllFields [FAIL]
+2025-07-08T10:11:51.5708557Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloyClientTests.Dispose_DoesNotThrow [FAIL]
+2025-07-08T10:11:51.5710002Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogAsync_WithAllParameters_CreatesCorrectLogEntry [FAIL]
+2025-07-08T10:11:51.5711680Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingEnabled_BatchesLogs [FAIL]
+2025-07-08T10:11:51.5713528Z [xUnit.net 00:00:00.65]     AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingDisabled_SendsLogsImmediately [FAIL]
+2025-07-08T10:11:51.5715517Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5718182Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(150,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_ConcurrentLogging_HandlesMultipleThreads()
+2025-07-08T10:11:51.5720087Z [xUnit.net 00:00:00.64]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5721150Z   Failed AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithRetryLogic_AttemptsMultipleTimes [4 ms]
+2025-07-08T10:11:51.5722083Z   Error Message:
+2025-07-08T10:11:51.5723814Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5725373Z   Stack Trace:
+2025-07-08T10:11:51.5725883Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5726713Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5728035Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5729991Z    at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithRetryLogic_AttemptsMultipleTimes() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 87
+2025-07-08T10:11:51.5731297Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5732051Z   Failed AlloySink.Tests.AlloyClientTests.Constructor_InitializesWithOptions [< 1 ms]
+2025-07-08T10:11:51.5733401Z   Error Message:
+2025-07-08T10:11:51.5734714Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5736219Z   Stack Trace:
+2025-07-08T10:11:51.5736788Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5737680Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5739258Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5741087Z    at AlloySink.Tests.AlloyClientTests.Constructor_InitializesWithOptions() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 22
+2025-07-08T10:11:51.5743103Z    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5745371Z    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5746367Z   Passed AlloySink.Tests.LogEntryTests.Properties_CanBeSet [12 ms]
+2025-07-08T10:11:51.5747254Z   Passed AlloySink.Tests.LogEntryTests.Exception_CanBeAnyExceptionType [< 1 ms]
+2025-07-08T10:11:51.5748501Z   Failed AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithValidLogEntries_FormatsAndSendsCorrectly [< 1 ms]
+2025-07-08T10:11:51.5749479Z   Error Message:
+2025-07-08T10:11:51.5751168Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5752760Z   Stack Trace:
+2025-07-08T10:11:51.5753538Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5754397Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5755732Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5757906Z    at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithValidLogEntries_FormatsAndSendsCorrectly() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 53
+2025-07-08T10:11:51.5759559Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5760532Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_AfterDispose_IgnoresNewLogs [2 ms]
+2025-07-08T10:11:51.5761406Z   Error Message:
+2025-07-08T10:11:51.5763127Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5764699Z   Stack Trace:
+2025-07-08T10:11:51.5765287Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5766170Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5767540Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5769406Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5771605Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_AfterDispose_IgnoresNewLogs() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 212
+2025-07-08T10:11:51.5773404Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5774418Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_ConcurrentLogging_HandlesMultipleThreads [1 ms]
+2025-07-08T10:11:51.5775386Z   Error Message:
+2025-07-08T10:11:51.5776863Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5778431Z   Stack Trace:
+2025-07-08T10:11:51.5779015Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5779923Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5781556Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5783514Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5785324Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_ConcurrentLogging_HandlesMultipleThreads() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 150
+2025-07-08T10:11:51.5786238Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5788506Z [xUnit.net 00:00:00.64]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5789951Z [xUnit.net 00:00:00.64]       Stack Trace:
+2025-07-08T10:11:51.5790970Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5792071Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5793846Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5795867Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5800372Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(190,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_Dispose_HandlesGracefulShutdown()
+2025-07-08T10:11:51.5802467Z [xUnit.net 00:00:00.64]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5804185Z [xUnit.net 00:00:00.64]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5806421Z [xUnit.net 00:00:00.64]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5808024Z [xUnit.net 00:00:00.64]       Stack Trace:
+2025-07-08T10:11:51.5808860Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5809947Z [xUnit.net 00:00:00.64]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5811531Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5813971Z [xUnit.net 00:00:00.64]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(33,0): at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithEmptyCollection_ReturnsTrue()
+2025-07-08T10:11:51.5815548Z [xUnit.net 00:00:00.64]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5817443Z [xUnit.net 00:00:00.64]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5818985Z [xUnit.net 00:00:00.64]       Stack Trace:
+2025-07-08T10:11:51.5819785Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5820809Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5822401Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5825088Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(185,0): at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint)
+2025-07-08T10:11:51.5827184Z [xUnit.net 00:00:00.65]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5828953Z [xUnit.net 00:00:00.65]            at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5831437Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5833195Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5834188Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5835286Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5836856Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5838851Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5841209Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(123,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_FlushAsync_SendsPendingLogs()
+2025-07-08T10:11:51.5842999Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5844930Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5846534Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5847363Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5848456Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5850062Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5852070Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5854674Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(96,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogErrorAsync_WithException_HandlesException()
+2025-07-08T10:11:51.5856449Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5858427Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5860045Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5860871Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5861971Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5863895Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5866261Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(185,0): at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint)
+2025-07-08T10:11:51.5868210Z [xUnit.net 00:00:00.65]            at InvokeStub_AlloyClientTests.Constructor_HandlesVariousEndpointFormats(Object, Span`1)
+2025-07-08T10:11:51.5870025Z [xUnit.net 00:00:00.65]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2025-07-08T10:11:51.5871688Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_Dispose_HandlesGracefulShutdown [< 1 ms]
+2025-07-08T10:11:51.5872529Z   Error Message:
+2025-07-08T10:11:51.5874200Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5875627Z   Stack Trace:
+2025-07-08T10:11:51.5876127Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5876930Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5878176Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5879856Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5881800Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_Dispose_HandlesGracefulShutdown() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 190
+2025-07-08T10:11:51.5883796Z    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5885073Z    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5886161Z   Passed AlloySink.Tests.LogEntryTests.Constructor_InitializesWithDefaults [3 ms]
+2025-07-08T10:11:51.5887224Z   Failed AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithEmptyCollection_ReturnsTrue [5 ms]
+2025-07-08T10:11:51.5887990Z   Error Message:
+2025-07-08T10:11:51.5889330Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5890646Z   Stack Trace:
+2025-07-08T10:11:51.5891154Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5891963Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5893386Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5895363Z    at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithEmptyCollection_ReturnsTrue() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 33
+2025-07-08T10:11:51.5896824Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5897920Z   Failed AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "http://192.168.1.100:4318/") [< 1 ms]
+2025-07-08T10:11:51.5898952Z   Error Message:
+2025-07-08T10:11:51.5900357Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5901826Z   Stack Trace:
+2025-07-08T10:11:51.5902541Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5903524Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5904800Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5906871Z    at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 185
+2025-07-08T10:11:51.5908734Z    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5910232Z    at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5911553Z   Passed AlloySink.Tests.LogEntryTests.Attributes_CanContainComplexObjects [3 ms]
+2025-07-08T10:11:51.5912945Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_FlushAsync_SendsPendingLogs [3 ms]
+2025-07-08T10:11:51.5913753Z   Error Message:
+2025-07-08T10:11:51.5915148Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5916626Z   Stack Trace:
+2025-07-08T10:11:51.5917161Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5918005Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5919277Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5920924Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5923001Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_FlushAsync_SendsPendingLogs() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 123
+2025-07-08T10:11:51.5924525Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5925514Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogErrorAsync_WithException_HandlesException [< 1 ms]
+2025-07-08T10:11:51.5926436Z   Error Message:
+2025-07-08T10:11:51.5927830Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5929298Z   Stack Trace:
+2025-07-08T10:11:51.5929838Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5930682Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5931954Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5933795Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.5935944Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogErrorAsync_WithException_HandlesException() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 96
+2025-07-08T10:11:51.5937440Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5938432Z   Failed AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "http://localhost:4318") [< 1 ms]
+2025-07-08T10:11:51.5939445Z   Error Message:
+2025-07-08T10:11:51.5940838Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5942469Z   Stack Trace:
+2025-07-08T10:11:51.5943133Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5943976Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5945245Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.5947288Z    at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 185
+2025-07-08T10:11:51.5949007Z    at InvokeStub_AlloyClientTests.Constructor_HandlesVariousEndpointFormats(Object, Span`1)
+2025-07-08T10:11:51.5950484Z    at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2025-07-08T10:11:51.5953286Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5954867Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5955710Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5956766Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5958263Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5960569Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(185,0): at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint)
+2025-07-08T10:11:51.5962519Z [xUnit.net 00:00:00.65]            at InvokeStub_AlloyClientTests.Constructor_HandlesVariousEndpointFormats(Object, Span`1)
+2025-07-08T10:11:51.5964497Z [xUnit.net 00:00:00.65]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2025-07-08T10:11:51.5967040Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5968694Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5969542Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5970679Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5972412Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5974990Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(141,0): at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithComplexLogEntry_HandlesAllFields()
+2025-07-08T10:11:51.5976688Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.5978686Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5980325Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5981174Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5982154Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5983437Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.5985721Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs(121,0): at AlloySink.Tests.AlloyClientTests.Dispose_DoesNotThrow()
+2025-07-08T10:11:51.5987722Z [xUnit.net 00:00:00.65]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.5989369Z [xUnit.net 00:00:00.65]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.5991973Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.5994029Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.5994922Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.5996186Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.5997886Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6000041Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6002998Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(71,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogAsync_WithAllParameters_CreatesCorrectLogEntry()
+2025-07-08T10:11:51.6004844Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6006885Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6008646Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.6009558Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6010764Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6012595Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6015054Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6017624Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(45,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingEnabled_BatchesLogs()
+2025-07-08T10:11:51.6019465Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6021556Z [xUnit.net 00:00:00.65]       System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6023620Z [xUnit.net 00:00:00.65]       Stack Trace:
+2025-07-08T10:11:51.6024573Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6026267Z [xUnit.net 00:00:00.65]            at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6028003Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs(16,0): at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6030149Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs(18,0): at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options)
+2025-07-08T10:11:51.6033021Z [xUnit.net 00:00:00.65]         /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs(22,0): at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingDisabled_SendsLogsImmediately()
+2025-07-08T10:11:51.6034895Z [xUnit.net 00:00:00.65]         --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6037689Z   Failed AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(endpoint: "https://alloy.example.com:4318") [< 1 ms]
+2025-07-08T10:11:51.6039116Z   Error Message:
+2025-07-08T10:11:51.6040595Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6042140Z   Stack Trace:
+2025-07-08T10:11:51.6042715Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6044217Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6045596Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6047738Z    at AlloySink.Tests.AlloyClientTests.Constructor_HandlesVariousEndpointFormats(String endpoint) in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 185
+2025-07-08T10:11:51.6049592Z    at InvokeStub_AlloyClientTests.Constructor_HandlesVariousEndpointFormats(Object, Span`1)
+2025-07-08T10:11:51.6051112Z    at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+2025-07-08T10:11:51.6052739Z   Failed AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithComplexLogEntry_HandlesAllFields [1 ms]
+2025-07-08T10:11:51.6053771Z   Error Message:
+2025-07-08T10:11:51.6055217Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6056810Z   Stack Trace:
+2025-07-08T10:11:51.6057372Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6058250Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6059593Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6061684Z    at AlloySink.Tests.AlloyClientTests.SendLogsAsync_WithComplexLogEntry_HandlesAllFields() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 141
+2025-07-08T10:11:51.6063454Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6064192Z   Failed AlloySink.Tests.AlloyClientTests.Dispose_DoesNotThrow [< 1 ms]
+2025-07-08T10:11:51.6064853Z   Error Message:
+2025-07-08T10:11:51.6066344Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6067905Z   Stack Trace:
+2025-07-08T10:11:51.6068485Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6069390Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6070996Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6073091Z    at AlloySink.Tests.AlloyClientTests.Dispose_DoesNotThrow() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloyClientTests.cs:line 121
+2025-07-08T10:11:51.6074772Z    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2025-07-08T10:11:51.6076172Z    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-07-08T10:11:51.6077629Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogAsync_WithAllParameters_CreatesCorrectLogEntry [3 ms]
+2025-07-08T10:11:51.6078652Z   Error Message:
+2025-07-08T10:11:51.6080359Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6081943Z   Stack Trace:
+2025-07-08T10:11:51.6082558Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6083684Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6085026Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6086816Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.6089135Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_LogAsync_WithAllParameters_CreatesCorrectLogEntry() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 71
+2025-07-08T10:11:51.6090902Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6091888Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingEnabled_BatchesLogs [1 ms]
+2025-07-08T10:11:51.6092979Z   Error Message:
+2025-07-08T10:11:51.6094443Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6095973Z   Stack Trace:
+2025-07-08T10:11:51.6096630Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6097531Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6098880Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6100677Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.6103014Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingEnabled_BatchesLogs() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 45
+2025-07-08T10:11:51.6104614Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6105635Z   Failed AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingDisabled_SendsLogsImmediately [< 1 ms]
+2025-07-08T10:11:51.6106566Z   Error Message:
+2025-07-08T10:11:51.6108005Z    System.InvalidOperationException : Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.
+2025-07-08T10:11:51.6109585Z   Stack Trace:
+2025-07-08T10:11:51.6110163Z      at System.Net.Http.Headers.HttpHeaders.GetHeaderDescriptor(String name)
+2025-07-08T10:11:51.6111062Z    at System.Net.Http.Headers.HttpHeaders.Add(String name, String value)
+2025-07-08T10:11:51.6112425Z    at Deneblab.AlloySink.AlloyClient..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloyClient.cs:line 16
+2025-07-08T10:11:51.6114812Z    at Deneblab.AlloySink.AlloySink..ctor(AlloySinkOptions options) in /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.cs:line 18
+2025-07-08T10:11:51.6117096Z    at AlloySink.Tests.AlloySinkIntegrationTests.AlloySink_WithBatchingDisabled_SendsLogsImmediately() in /home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySinkIntegrationTests.cs:line 22
+2025-07-08T10:11:51.6118782Z --- End of stack trace from previous location ---
+2025-07-08T10:11:51.6120158Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Trace, expectedText: "TRACE", expectedNumber: 1) [57 ms]
+2025-07-08T10:11:51.6122387Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Critical, expectedText: "FATAL", expectedNumber: 21) [< 1 ms]
+2025-07-08T10:11:51.6125096Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Debug, expectedText: "DEBUG", expectedNumber: 5) [< 1 ms]
+2025-07-08T10:11:51.6126614Z [xUnit.net 00:00:00.66]   Finished:    AlloySink.Tests
+2025-07-08T10:11:51.6303809Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Error, expectedText: "ERROR", expectedNumber: 17) [< 1 ms]
+2025-07-08T10:11:51.6306106Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Information, expectedText: "INFO", expectedNumber: 9) [< 1 ms]
+2025-07-08T10:11:51.6308353Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithDifferentLogLevels_MapsToCorrectSeverity(level: Warning, expectedText: "WARN", expectedNumber: 13) [< 1 ms]
+2025-07-08T10:11:51.6310145Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithSingleLogEntry_ReturnsValidOtlpJson [3 ms]
+2025-07-08T10:11:51.6313557Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithException_IncludesExceptionAttributes [< 1 ms]
+2025-07-08T10:11:51.6315047Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithMultipleLogEntries_ReturnsBatchedOtlpJson [< 1 ms]
+2025-07-08T10:11:51.6318343Z   Passed AlloySink.Tests.OtlpLogFormatterTests.FormatLogs_WithComplexAttributes_SerializesCorrectly [47 ms]
+2025-07-08T10:11:51.6340576Z 
+2025-07-08T10:11:51.6394526Z Test Run Failed.
+2025-07-08T10:11:51.6394841Z Total tests: 54
+2025-07-08T10:11:51.6395131Z      Passed: 33
+2025-07-08T10:11:51.6395883Z      Failed: 21
+2025-07-08T10:11:51.6532691Z  Total time: 1.0920 Seconds
+2025-07-08T10:11:51.6645813Z        _VSTestConsole:
+2025-07-08T10:11:51.6646596Z          MSB4181: The "VSTestTask" task returned false but did not log an error.
+2025-07-08T10:11:51.6655598Z      1>Done Building Project "/home/runner/work/AlloySink/AlloySink/src/AlloySink.Tests/AlloySink.Tests.csproj" (VSTest target(s)) -- FAILED.
+2025-07-08T10:11:51.6677917Z 
+2025-07-08T10:11:51.6678535Z Build FAILED.
+2025-07-08T10:11:51.6678907Z     0 Warning(s)
+2025-07-08T10:11:51.6679100Z     0 Error(s)
+2025-07-08T10:11:51.6688730Z 
+2025-07-08T10:11:51.6688974Z Time Elapsed 00:00:02.91
+2025-07-08T10:11:51.7096106Z ##[error]Process completed with exit code 1.
+2025-07-08T10:11:51.7208035Z Post job cleanup.
+2025-07-08T10:11:51.8152039Z [command]/usr/bin/git version
+2025-07-08T10:11:51.8192980Z git version 2.49.0
+2025-07-08T10:11:51.8239037Z Temporarily overriding HOME='/home/runner/work/_temp/257da9eb-4f70-49ca-bcfc-33a1eea402ed' before making global git config changes
+2025-07-08T10:11:51.8240386Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-08T10:11:51.8245884Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AlloySink/AlloySink
+2025-07-08T10:11:51.8291623Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-08T10:11:51.8329010Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-08T10:11:51.8584301Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-08T10:11:51.8607543Z http.https://github.com/.extraheader
+2025-07-08T10:11:51.8619484Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-07-08T10:11:51.8653107Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-08T10:11:51.9021788Z Cleaning up orphan processes
+2025-07-08T10:11:51.9300500Z Terminate orphan process: pid (2707) (dotnet)
+2025-07-08T10:11:51.9336731Z Terminate orphan process: pid (2757) (dotnet)

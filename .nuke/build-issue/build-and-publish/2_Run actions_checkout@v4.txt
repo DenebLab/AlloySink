@@ -1,0 +1,74 @@
+﻿2025-07-08T10:11:26.3868717Z ##[group]Run actions/checkout@v4
+2025-07-08T10:11:26.3869673Z with:
+2025-07-08T10:11:26.3870106Z   fetch-depth: 0
+2025-07-08T10:11:26.3870559Z   repository: DenebLab/AlloySink
+2025-07-08T10:11:26.3871366Z   token: ***
+2025-07-08T10:11:26.3871782Z   ssh-strict: true
+2025-07-08T10:11:26.3872199Z   ssh-user: git
+2025-07-08T10:11:26.3872633Z   persist-credentials: true
+2025-07-08T10:11:26.3873278Z   clean: true
+2025-07-08T10:11:26.3873729Z   sparse-checkout-cone-mode: true
+2025-07-08T10:11:26.3874250Z   fetch-tags: false
+2025-07-08T10:11:26.3874670Z   show-progress: true
+2025-07-08T10:11:26.3875101Z   lfs: false
+2025-07-08T10:11:26.3875489Z   submodules: false
+2025-07-08T10:11:26.3875929Z   set-safe-directory: true
+2025-07-08T10:11:26.3876644Z env:
+2025-07-08T10:11:26.3877050Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:26.3877560Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:26.3878139Z ##[endgroup]
+2025-07-08T10:11:26.4970045Z Syncing repository: DenebLab/AlloySink
+2025-07-08T10:11:26.4972030Z ##[group]Getting Git version info
+2025-07-08T10:11:26.4973193Z Working directory is '/home/runner/work/AlloySink/AlloySink'
+2025-07-08T10:11:26.4974651Z [command]/usr/bin/git version
+2025-07-08T10:11:26.5011158Z git version 2.49.0
+2025-07-08T10:11:26.5038029Z ##[endgroup]
+2025-07-08T10:11:26.5052545Z Temporarily overriding HOME='/home/runner/work/_temp/b06cb6a8-a9fe-499c-8507-6b39d2f3f7f4' before making global git config changes
+2025-07-08T10:11:26.5054967Z Adding repository directory to the temporary git global config as a safe directory
+2025-07-08T10:11:26.5058191Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AlloySink/AlloySink
+2025-07-08T10:11:26.5092368Z Deleting the contents of '/home/runner/work/AlloySink/AlloySink'
+2025-07-08T10:11:26.5096313Z ##[group]Initializing the repository
+2025-07-08T10:11:26.5100067Z [command]/usr/bin/git init /home/runner/work/AlloySink/AlloySink
+2025-07-08T10:11:26.5170269Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-07-08T10:11:26.5171776Z hint: is subject to change. To configure the initial branch name to use in all
+2025-07-08T10:11:26.5172716Z hint: of your new repositories, which will suppress this warning, call:
+2025-07-08T10:11:26.5173942Z hint:
+2025-07-08T10:11:26.5174899Z hint: 	git config --global init.defaultBranch <name>
+2025-07-08T10:11:26.5176041Z hint:
+2025-07-08T10:11:26.5177264Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-07-08T10:11:26.5178977Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-07-08T10:11:26.5179828Z hint:
+2025-07-08T10:11:26.5180239Z hint: 	git branch -m <name>
+2025-07-08T10:11:26.5180989Z Initialized empty Git repository in /home/runner/work/AlloySink/AlloySink/.git/
+2025-07-08T10:11:26.5189413Z [command]/usr/bin/git remote add origin https://github.com/DenebLab/AlloySink
+2025-07-08T10:11:26.5219588Z ##[endgroup]
+2025-07-08T10:11:26.5220905Z ##[group]Disabling automatic garbage collection
+2025-07-08T10:11:26.5223266Z [command]/usr/bin/git config --local gc.auto 0
+2025-07-08T10:11:26.5250783Z ##[endgroup]
+2025-07-08T10:11:26.5251953Z ##[group]Setting up auth
+2025-07-08T10:11:26.5257206Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-07-08T10:11:26.5286329Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-07-08T10:11:26.5569223Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-07-08T10:11:26.5598367Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-07-08T10:11:26.5819389Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-07-08T10:11:26.5855950Z ##[endgroup]
+2025-07-08T10:11:26.5857757Z ##[group]Fetching the repository
+2025-07-08T10:11:26.5864943Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-07-08T10:11:26.8576155Z From https://github.com/DenebLab/AlloySink
+2025-07-08T10:11:26.8577739Z  * [new branch]      production -> origin/production
+2025-07-08T10:11:26.8610566Z [command]/usr/bin/git branch --list --remote origin/production
+2025-07-08T10:11:26.8632988Z   origin/production
+2025-07-08T10:11:26.8642277Z [command]/usr/bin/git rev-parse refs/remotes/origin/production
+2025-07-08T10:11:26.8662016Z de56913b3e5e2a3b69d29d97f179d6fdddb89067
+2025-07-08T10:11:26.8667931Z ##[endgroup]
+2025-07-08T10:11:26.8669069Z ##[group]Determining the checkout info
+2025-07-08T10:11:26.8670235Z ##[endgroup]
+2025-07-08T10:11:26.8674339Z [command]/usr/bin/git sparse-checkout disable
+2025-07-08T10:11:26.8712663Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-07-08T10:11:26.8739272Z ##[group]Checking out the ref
+2025-07-08T10:11:26.8743355Z [command]/usr/bin/git checkout --progress --force -B production refs/remotes/origin/production
+2025-07-08T10:11:26.8818925Z Switched to a new branch 'production'
+2025-07-08T10:11:26.8822251Z branch 'production' set up to track 'origin/production'.
+2025-07-08T10:11:26.8830027Z ##[endgroup]
+2025-07-08T10:11:26.8863950Z [command]/usr/bin/git log -1 --format=%H
+2025-07-08T10:11:26.8885810Z de56913b3e5e2a3b69d29d97f179d6fdddb89067

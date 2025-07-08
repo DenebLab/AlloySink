@@ -1,0 +1,17 @@
+﻿2025-07-08T10:11:39.1439675Z ##[group]Run dotnet build src/AlloySink/AlloySink.csproj --configuration Release /p:TargetFramework=net8.0 /p:Version=0.1.4
+2025-07-08T10:11:39.1441169Z [36;1mdotnet build src/AlloySink/AlloySink.csproj --configuration Release /p:TargetFramework=net8.0 /p:Version=0.1.4[0m
+2025-07-08T10:11:39.1498147Z shell: /usr/bin/bash -e {0}
+2025-07-08T10:11:39.1498395Z env:
+2025-07-08T10:11:39.1498567Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:39.1498820Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:39.1499115Z   DOTNET_ROOT: /usr/share/dotnet
+2025-07-08T10:11:39.1499338Z ##[endgroup]
+2025-07-08T10:11:39.9113749Z   Determining projects to restore...
+2025-07-08T10:11:40.4578063Z   Restored /home/runner/work/AlloySink/AlloySink/src/AlloySink/AlloySink.csproj (in 240 ms).
+2025-07-08T10:11:42.7447633Z   AlloySink -> /home/runner/work/AlloySink/AlloySink/src/AlloySink/bin/Release/net8.0/Deneblab.AlloySink.dll
+2025-07-08T10:11:42.7655969Z 
+2025-07-08T10:11:42.7662283Z Build succeeded.
+2025-07-08T10:11:42.7663026Z     0 Warning(s)
+2025-07-08T10:11:42.7663342Z     0 Error(s)
+2025-07-08T10:11:42.7669552Z 
+2025-07-08T10:11:42.7669910Z Time Elapsed 00:00:02.29

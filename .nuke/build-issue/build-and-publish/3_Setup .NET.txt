@@ -1,0 +1,30 @@
+﻿2025-07-08T10:11:26.9156891Z ##[group]Run actions/setup-dotnet@v4
+2025-07-08T10:11:26.9158121Z with:
+2025-07-08T10:11:26.9158938Z   dotnet-version: 9.0.x
+2025-07-08T10:11:26.9159911Z   cache: false
+2025-07-08T10:11:26.9160739Z env:
+2025-07-08T10:11:26.9161550Z   DOTNET_VERSION: 9.0.x
+2025-07-08T10:11:26.9162655Z   PROJECT_PATH: src/AlloySink/AlloySink.csproj
+2025-07-08T10:11:26.9164169Z ##[endgroup]
+2025-07-08T10:11:27.0974507Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+2025-07-08T10:11:28.0295765Z dotnet-install: Attempting to download using aka.ms link https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz
+2025-07-08T10:11:28.2218680Z dotnet-install: Remote file https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz size is 31286412 bytes.
+2025-07-08T10:11:28.2220977Z dotnet-install: Extracting archive from https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.17/dotnet-runtime-8.0.17-linux-x64.tar.gz
+2025-07-08T10:11:28.8265824Z dotnet-install: Downloaded file size is 31286412 bytes.
+2025-07-08T10:11:28.8266631Z dotnet-install: The remote and local file sizes are equal.
+2025-07-08T10:11:28.8559648Z dotnet-install: Installed version is 8.0.17
+2025-07-08T10:11:28.8617750Z dotnet-install: Adding to current process PATH: `/usr/share/dotnet`. Note: This change will be visible only when sourcing script.
+2025-07-08T10:11:28.8619324Z dotnet-install: Note that the script does not resolve dependencies during installation.
+2025-07-08T10:11:28.8620926Z dotnet-install: To check the list of dependencies, go to https://learn.microsoft.com/dotnet/core/install, select your operating system and check the "Dependencies" section.
+2025-07-08T10:11:28.8622277Z dotnet-install: Installation finished successfully.
+2025-07-08T10:11:28.8649370Z [command]/home/runner/work/_actions/actions/setup-dotnet/v4/externals/install-dotnet.sh --skip-non-versioned-files --channel 9.0
+2025-07-08T10:11:29.5266118Z dotnet-install: Attempting to download using aka.ms link https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz
+2025-07-08T10:11:30.6429133Z dotnet-install: Remote file https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz size is 218099607 bytes.
+2025-07-08T10:11:30.6433504Z dotnet-install: Extracting archive from https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.301/dotnet-sdk-9.0.301-linux-x64.tar.gz
+2025-07-08T10:11:35.1563678Z dotnet-install: Downloaded file size is 218099607 bytes.
+2025-07-08T10:11:35.1565331Z dotnet-install: The remote and local file sizes are equal.
+2025-07-08T10:11:35.4184421Z dotnet-install: Installed version is 9.0.301
+2025-07-08T10:11:35.4242044Z dotnet-install: Adding to current process PATH: `/usr/share/dotnet`. Note: This change will be visible only when sourcing script.
+2025-07-08T10:11:35.4244612Z dotnet-install: Note that the script does not resolve dependencies during installation.
+2025-07-08T10:11:35.4246063Z dotnet-install: To check the list of dependencies, go to https://learn.microsoft.com/dotnet/core/install, select your operating system and check the "Dependencies" section.
+2025-07-08T10:11:35.4247311Z dotnet-install: Installation finished successfully.
