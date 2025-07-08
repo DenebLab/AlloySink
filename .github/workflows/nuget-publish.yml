@@ -1,0 +1,68 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - production
+  pull_request:
+    branches:
+      - production
+
+env:
+  DOTNET_VERSION: '9.0.x'
+  PROJECT_PATH: 'src/AlloySink/AlloySink.csproj'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Important for version calculation
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Install AbcVersion tool
+      run: dotnet tool install --global Deneblab.AbcVersionCmd
+        
+    - name: Get version
+      id: get_version
+      run: |
+          VERSION=$(abcversion -p semversion)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Using version: $VERSION"
+    
+    - name: Restore AlloySink project
+      run: dotnet restore ${{ env.PROJECT_PATH }} /p:TargetFramework=net8.0
+    
+    - name: Build AlloySink project
+      run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release /p:TargetFramework=net8.0 /p:Version=${{ steps.get_version.outputs.version }}
+    
+    - name: Restore solution
+      run: dotnet restore src/AlloySink.sln
+    
+    - name: Build solution
+      run: dotnet build src/AlloySink.sln --configuration Release /p:Version=${{ steps.get_version.outputs.version }}
+    
+    - name: Test
+      run: dotnet test src/AlloySink.Tests/AlloySink.Tests.csproj --no-restore --verbosity normal
+    
+    - name: Pack NuGet package
+      if: github.event_name == 'push'
+      run: |
+        dotnet pack ${{ env.PROJECT_PATH }} \
+          --configuration Release \
+          --no-build \
+          --output nupkgs \
+          /p:Version=${{ steps.get_version.outputs.version }}
+    
+    - name: Push to NuGet
+      if: github.event_name == 'push'
+      run: |
+        dotnet nuget push nupkgs/*.nupkg \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --source https://api.nuget.org/v3/index.json

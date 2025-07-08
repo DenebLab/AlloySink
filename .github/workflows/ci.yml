@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  DOTNET_VERSION: '9.0.x'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Install AbcVersion tool
+      run: dotnet tool install --global Deneblab.AbcVersionCmd
+
+    - name: Get version
+      id: get_version
+      run: |
+        VERSION=$(abcversion -p semversion)
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Using version: $VERSION"
+    
+    - name: Restore dependencies
+      run: dotnet restore src/AlloySink.sln
+    
+    - name: Build
+      run: dotnet build src/AlloySink.sln --configuration Release --no-restore
+    
+    - name: Test
+      run: dotnet test src/AlloySink.Tests/AlloySink.Tests.csproj --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./src/AlloySink.Tests/TestResults/*/coverage.cobertura.xml
+        fail_ci_if_error: false
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    
+    - name: Pack (for validation)
+      run: dotnet pack src/AlloySink/AlloySink.csproj --configuration Release --no-build --output ./artifacts
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: ./artifacts/*.nupkg

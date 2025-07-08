@@ -1,0 +1,99 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  DOTNET_VERSION: '9.0.x'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract_version.outputs.version }}
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Extract version from tag
+      id: extract_version
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Version: $VERSION"
+    
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ steps.extract_version.outputs.version }}
+        body: |
+          ## Changes in this Release
+          
+          - See [CHANGELOG.md](https://github.com/DenebLab/AlloySink/blob/main/CHANGELOG.md) for detailed changes
+          
+          ## Installation
+          
+          ```bash
+          dotnet add package AlloySink --version ${{ steps.extract_version.outputs.version }}
+          ```
+          
+          ## NuGet Package
+          
+          This release is available on [NuGet](https://www.nuget.org/packages/AlloySink/${{ steps.extract_version.outputs.version }})
+        draft: false
+        prerelease: ${{ contains(steps.extract_version.outputs.version, '-') }}
+
+  build-and-publish:
+    needs: create-release
+    runs-on: ubuntu-latest
+    environment: nuget-production
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Restore dependencies
+      run: dotnet restore src/AlloySink.sln
+    
+    - name: Build
+      run: dotnet build src/AlloySink.sln --configuration Release --no-restore
+      env:
+        PACKAGE_VERSION: ${{ needs.create-release.outputs.version }}
+    
+    - name: Test
+      run: dotnet test src/AlloySink.Tests/AlloySink.Tests.csproj --configuration Release --no-build --verbosity normal
+    
+    - name: Pack
+      run: dotnet pack src/AlloySink/AlloySink.csproj --configuration Release --no-build --output ./artifacts
+      env:
+        PACKAGE_VERSION: ${{ needs.create-release.outputs.version }}
+    
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./artifacts/AlloySink.${{ needs.create-release.outputs.version }}.nupkg
+        asset_name: AlloySink.${{ needs.create-release.outputs.version }}.nupkg
+        asset_content_type: application/zip
+    
+    - name: Publish to NuGet
+      run: |
+        dotnet nuget push "./artifacts/*.nupkg" \
+          --source https://api.nuget.org/v3/index.json \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --skip-duplicate
