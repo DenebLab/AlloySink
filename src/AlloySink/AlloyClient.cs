@@ -13,7 +13,6 @@ public class AlloyClient : IDisposable
         _options = options;
         _endpoint = $"{options.AlloyEndpoint.TrimEnd('/')}/v1/logs";
         _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
     }
 
     public async Task<bool> SendLogsAsync(IEnumerable<LogEntry> logEntries)
