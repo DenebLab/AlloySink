@@ -6,25 +6,27 @@ AlloySink is a .NET 8.0 C# library for sending structured logs directly to Grafa
 
 ## Build System
 
-This project uses **Nuke** as its build automation system with **Git-based versioning**.
+This project uses **Nuke** as its build automation system with **AbcVersion semantic versioning**.
 
 ### Build Commands
 
 - **Primary build**: `./build.sh` (Linux/macOS) or `.\build.ps1` (Windows)
 - **Build targets**:
+  - `./build.sh --target InstallAbcVersion` - Install AbcVersion tool
   - `./build.sh --target Clean` - Clean build outputs
   - `./build.sh --target Restore` - Restore NuGet packages
   - `./build.sh --target Compile` - Build the solution (default)
   - `./build.sh --target Test` - Run unit tests
   - `./build.sh --target Pack` - Create NuGet package
-  - `./build.sh --target CI` - Full CI pipeline (Clean + Test + Pack)
+  - `./build.sh --target CI` - Full CI pipeline (AbcVersion + Clean + Test + Pack)
 
 ### Version Management
 
-- **Git-based versioning**: `Major.Minor.{CommitCount}`
-- Version automatically determined from Git commit history
-- Assembly versions set during build with Git commit hash
-- Example: `1.0.1+b5fe339`
+- **AbcVersion semantic versioning**: Uses `abcversion -p semversion` command
+- **Fallback strategy**: Environment variable → AbcVersion → Default (1.0.0)
+- **Cached calculation**: Single version resolution per build session
+- **CI/CD override**: Use `PACKAGE_VERSION` environment variable
+- **Example versions**: `0.1.4`, `1.2.15`, `2.0.0-beta.3`
 
 ### Project Structure
 
@@ -85,9 +87,10 @@ await alloySink.LogInfoAsync("User action", new Dictionary<string, object>
 ## Development Workflow
 
 1. **Local development**: Use default `./build.sh` (Compile target)
-2. **Run tests**: `./build.sh --target Test`
-3. **Create package**: `./build.sh --target Pack`
-4. **Full validation**: `./build.sh --target CI`
+2. **Install versioning**: `./build.sh --target InstallAbcVersion` (optional, auto-installs during CI)
+3. **Run tests**: `./build.sh --target Test` (54 tests, all passing ✅)
+4. **Create package**: `./build.sh --target Pack`
+5. **Full validation**: `./build.sh --target CI`
 
 ## Output Directories
 

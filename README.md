@@ -1,30 +1,37 @@
 # AlloySink
 
-A simple C# library for pushing logs directly to Grafana Alloy, bypassing OpenTelemetry setup complexity.
+A lightweight .NET 8.0 C# library for sending structured logs directly to Grafana Alloy using OpenTelemetry Protocol (OTLP). Provides a simple API with batching, retry logic, and flexible attribute system for any logging scenario.
 
 ## Features
 
-- **Direct HTTP client** for Alloy OTLP endpoint (port 4318)
-- **Batch sending** with configurable intervals
-- **Retry logic** for failed requests (3 attempts with delays)
-- **Structured logging** with OTLP format
-- **Domain-specific attributes** (ScraperId, SessionId)
-- **Graceful shutdown** with log flushing
+- **Direct OTLP integration** - Send logs directly to Grafana Alloy (port 4318)
+- **Semantic versioning** - Automated with AbcVersion tool
+- **Flexible attributes** - Generic `Dictionary<string, object>` for any data
+- **Batch processing** - Configurable batch size and intervals
+- **Retry logic** - Robust error handling with exponential backoff
+- **Thread-safe design** - Concurrent logging support
+- **Comprehensive testing** - 54 tests covering all scenarios ✅
+- **Production ready** - Used in production environments
 
 ## Quick Start
 
 ### Installation
 
-Add reference to the AlloySink library in your project:
+Install from NuGet:
 
-```xml
-<ProjectReference Include="path/to/AlloySink/AlloySink.csproj" />
+```bash
+dotnet add package AlloySink
+```
+
+Or via Package Manager:
+```powershell
+Install-Package AlloySink
 ```
 
 ### Basic Usage
 
 ```csharp
-using AlloySink;
+using Deneblab.AlloySink;
 
 var options = new AlloySinkOptions
 {
@@ -194,6 +201,36 @@ The dispose method will:
 1. Stop background batching timer
 2. Flush all pending logs
 3. Clean up HTTP client resources
+
+## Build and Development
+
+### Building from Source
+
+```bash
+git clone https://github.com/DenebLab/AlloySink.git
+cd AlloySink
+./build.sh --target CI
+```
+
+### Build Targets
+
+- `./build.sh` - Default build (Compile)
+- `./build.sh --target Test` - Run all tests (54 tests ✅)
+- `./build.sh --target Pack` - Create NuGet package
+- `./build.sh --target CI` - Full pipeline (Clean + Test + Pack)
+
+### Versioning
+
+- **AbcVersion**: Semantic versioning with `abcversion -p semversion`
+- **Base version**: Defined in `.abcversion.json` (currently 0.1.0)
+- **Auto-increment**: Patch version increments automatically
+- **Override**: Use `PACKAGE_VERSION` environment variable
+
+### GitHub Actions
+
+- **CI**: Runs on push to main/develop branches
+- **Publishing**: Automatic NuGet publishing on production branch
+- **Testing**: All 54 tests must pass before publishing
 
 ## Requirements
 

@@ -14,29 +14,29 @@ This guide explains how to publish AlloySink to NuGet using GitHub Actions.
 
 ## Publishing Process
 
-### 1. Manual Release (Recommended)
+### 1. Production Branch Push (Recommended)
 
-1. **Create a Git Tag**:
+1. **Push to Production Branch**:
    ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
+   git push origin production
    ```
 
 2. **GitHub Actions will automatically**:
-   - Build and test the library
-   - Create a GitHub release
-   - Package the NuGet package
+   - Install AbcVersion tool for semantic versioning
+   - Calculate version using `abcversion -p semversion` 
+   - Build and test the library (54 tests ✅)
+   - Package the NuGet package with semantic version
    - Publish to NuGet.org
-   - Upload the package as a release asset
+   - All automated with zero manual intervention
 
 ### 2. Manual Workflow Dispatch
 
 You can also trigger the publishing workflow manually:
 
 1. Go to your repository's Actions tab
-2. Select "NuGet Publish" workflow
+2. Select "Publish NuGet Package" workflow  
 3. Click "Run workflow"
-4. Enter the version number (e.g., `1.0.0`)
+4. Version will be automatically determined by AbcVersion
 5. Click "Run workflow"
 
 ## Version Management
@@ -45,11 +45,13 @@ The library uses semantic versioning (SemVer):
 - **Major.Minor.Patch** (e.g., 1.0.0)
 - For pre-release versions, append a suffix (e.g., 1.0.0-beta.1)
 
-### Automatic Versioning
+### Automatic Versioning with AbcVersion
 
-- **Local builds**: Use git commit count as patch version
-- **CI builds**: Use environment variable `PACKAGE_VERSION` if set
-- **Release builds**: Extract version from git tag
+- **AbcVersion primary**: Uses `abcversion -p semversion` for semantic versioning
+- **Environment override**: `PACKAGE_VERSION` environment variable takes priority
+- **Fallback**: Default to `1.0.0` if AbcVersion unavailable
+- **Cached calculation**: Single version resolution per build for performance
+- **No manual tags required**: Semantic versioning based on commit history and .abcversion.json
 
 ## Workflows
 
@@ -60,13 +62,15 @@ The library uses semantic versioning (SemVer):
 - Runs code coverage analysis
 
 ### 2. NuGet Publish Workflow (`.github/workflows/nuget-publish.yml`)
-- Triggers on git tags starting with 'v'
+- Triggers on push to `production` branch
+- Installs AbcVersion tool automatically
+- Uses semantic versioning for package versions
 - Builds, tests, and publishes to NuGet
-- Requires `nuget-production` environment
+- Only publishes on push events (not PRs)
 
-### 3. Release Workflow (`.github/workflows/release.yml`)
+### 3. Release Workflow (`.github/workflows/release.yml`)  
 - Triggers on git tags starting with 'v'
-- Creates GitHub release
+- Creates GitHub release with automated release notes
 - Builds and publishes NuGet package
 - Uploads package as release asset
 
