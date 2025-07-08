@@ -4,14 +4,48 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RootNamespace>Deneblab.AlloySink</RootNamespace>
+    <AssemblyName>Deneblab.AlloySink</AssemblyName>
+    
+    <!-- Package Metadata -->
     <PackageId>AlloySink</PackageId>
-    <Version>1.0.0</Version>
-    <Authors>AlloySink</Authors>
-    <Description>Simple C# library for pushing logs directly to Grafana Alloy</Description>
+    <Title>AlloySink</Title>
+    <Authors>Piotr Kudrel</Authors>
+    <Company>DenebLab</Company>
+    <Product>AlloySink</Product>
+    <Description>A lightweight .NET library for sending structured logs directly to Grafana Alloy using OpenTelemetry Protocol (OTLP). Provides a simple API with batching, retry logic, and flexible attribute system for any logging scenario.</Description>
+    <Summary>Send structured logs directly to Grafana Alloy with OTLP protocol</Summary>
+    <PackageTags>logging;grafana;alloy;otlp;opentelemetry;observability;structured-logging</PackageTags>
+    <PackageProjectUrl>https://github.com/DenebLab/AlloySink</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+    
+    <!-- Repository Info -->
+    <RepositoryUrl>https://github.com/DenebLab/AlloySink</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    
+    <!-- Build Info -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    
+    <!-- Source Link -->
+    <IncludeSource>true</IncludeSource>
+    
+    <!-- Security -->
+    <SignAssembly>false</SignAssembly>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
