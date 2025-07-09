@@ -1,28 +1,86 @@
-using System.Collections.Concurrent;
+using System.Threading.Channels;
 using Microsoft.Extensions.Logging;
 
 namespace Deneblab.AlloySink;
 
-public class AlloySink : IDisposable
+public class AlloySink : IAlloySink
 {
+    private Task _backgroundProcessor;
+    private readonly CancellationTokenSource _cancellationTokenSource;
+    private readonly IAlloyClient _client;
+    private Channel<LogEntry> _logChannel;
+    private ChannelWriter<LogEntry> _logWriter;
     private readonly AlloySinkOptions _options;
-    private readonly AlloyClient _client;
-    private readonly ConcurrentQueue<LogEntry> _logQueue;
-    private readonly Timer? _batchTimer;
-    private readonly SemaphoreSlim _flushSemaphore;
+    private readonly ILogger<AlloySink> _logger;
     private volatile bool _disposed;
 
-    public AlloySink(AlloySinkOptions options)
+    public AlloySink(AlloySinkOptions options, ILoggerFactory loggerFactory)
     {
         _options = options;
-        _client = new AlloyClient(options);
-        _logQueue = new ConcurrentQueue<LogEntry>();
-        _flushSemaphore = new SemaphoreSlim(1, 1);
+        _logger = loggerFactory.CreateLogger<AlloySink>();
+        _client = new AlloyClient(options, loggerFactory.CreateLogger<AlloyClient>());
+        _cancellationTokenSource = new CancellationTokenSource();
 
-        if (_options.EnableBatching)
+        InitializeChannel();
+    }
+
+    public AlloySink(AlloySinkOptions options, IAlloyClient alloyClient, ILogger<AlloySink> logger)
+    {
+        _options = options;
+        _logger = logger;
+        _client = alloyClient;
+        _cancellationTokenSource = new CancellationTokenSource();
+
+        InitializeChannel();
+    }
+
+    private void InitializeChannel()
+    {
+        var channelOptions = new BoundedChannelOptions(1000)
         {
-            _batchTimer = new Timer(async _ => await FlushBatchAsync(), null, _options.BatchInterval, _options.BatchInterval);
+            FullMode = BoundedChannelFullMode.Wait,
+            SingleReader = true,
+            SingleWriter = false
+        };
+
+        _logChannel = Channel.CreateBounded<LogEntry>(channelOptions);
+        _logWriter = _logChannel.Writer;
+
+        _backgroundProcessor = Task.Run(ProcessLogsAsync, _cancellationTokenSource.Token);
+    }
+
+    public void Dispose()
+    {
+        if (_disposed) return;
+
+        _disposed = true;
+
+        try
+        {
+            _logWriter.Complete();
         }
+        catch (ChannelClosedException)
+        {
+            // Channel already closed
+        }
+        catch (InvalidOperationException)
+        {
+            // Channel already closed
+        }
+
+        _cancellationTokenSource.Cancel();
+
+        try
+        {
+            _backgroundProcessor.GetAwaiter().GetResult();
+        }
+        catch (OperationCanceledException)
+        {
+            // Expected
+        }
+
+        _client?.Dispose();
+        _cancellationTokenSource?.Dispose();
     }
 
     public async Task LogAsync(LogLevel level, string message, Dictionary<string, object>? attributes = null)
@@ -48,7 +106,8 @@ public class AlloySink : IDisposable
         await LogAsync(LogLevel.Information, message, attributes);
     }
 
-    public async Task LogErrorAsync(string message, Exception? exception = null, Dictionary<string, object>? attributes = null)
+    public async Task LogErrorAsync(string message, Exception? exception = null,
+        Dictionary<string, object>? attributes = null)
     {
         if (_disposed) return;
 
@@ -81,63 +140,66 @@ public class AlloySink : IDisposable
     {
         if (_disposed) return;
 
-        if (_options.EnableBatching)
+        try
         {
-            _logQueue.Enqueue(logEntry);
-            
-            if (_logQueue.Count >= _options.BatchSize)
-            {
-                await FlushBatchAsync();
-            }
+            await _logWriter.WriteAsync(logEntry, _cancellationTokenSource.Token);
         }
-        else
+        catch (InvalidOperationException)
         {
-            await _client.SendLogsAsync(new[] { logEntry });
+            // Channel was closed, ignore
         }
     }
 
     public async Task FlushAsync()
     {
         if (_disposed) return;
-        await FlushBatchAsync();
-    }
 
-    private async Task FlushBatchAsync()
-    {
-        if (_disposed) return;
-
-        await _flushSemaphore.WaitAsync();
         try
         {
-            var logsToSend = new List<LogEntry>();
-            
-            while (_logQueue.TryDequeue(out var logEntry) && logsToSend.Count < _options.BatchSize)
-            {
-                logsToSend.Add(logEntry);
-            }
-
-            if (logsToSend.Any())
-            {
-                await _client.SendLogsAsync(logsToSend);
-            }
+            _logWriter.Complete();
+            await _backgroundProcessor;
         }
-        finally
+        catch (ChannelClosedException)
         {
-            _flushSemaphore.Release();
+            // Channel already closed
+        }
+        catch (InvalidOperationException)
+        {
+            // Channel already closed
         }
     }
 
-    public void Dispose()
+    private async Task ProcessLogsAsync()
     {
-        if (_disposed) return;
-        
-        _disposed = true;
-        
-        _batchTimer?.Dispose();
-        
-        FlushAsync().GetAwaiter().GetResult();
-        
-        _client?.Dispose();
-        _flushSemaphore?.Dispose();
+        var reader = _logChannel.Reader;
+        var batch = new List<LogEntry>();
+        var lastSendTime = DateTime.UtcNow;
+
+        try
+        {
+            while (await reader.WaitToReadAsync(_cancellationTokenSource.Token))
+                while (reader.TryRead(out var logEntry))
+                {
+                    batch.Add(logEntry);
+
+                    var shouldSendBatch = !_options.EnableBatching ||
+                                          batch.Count >= _options.BatchSize ||
+                                          DateTime.UtcNow - lastSendTime >= _options.BatchInterval;
+
+                    if (shouldSendBatch && batch.Count > 0)
+                    {
+                        await _client.SendLogsAsync(batch.ToArray());
+                        batch.Clear();
+                        lastSendTime = DateTime.UtcNow;
+                    }
+                }
+
+            // Send remaining logs when channel is completed
+            if (batch.Count > 0) await _client.SendLogsAsync(batch.ToArray());
+        }
+        catch (OperationCanceledException)
+        {
+            // Expected when cancellation is requested
+        }
     }
 }

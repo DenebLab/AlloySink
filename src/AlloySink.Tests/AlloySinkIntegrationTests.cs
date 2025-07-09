@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Xunit;
 
 using Deneblab.AlloySink;
@@ -19,7 +20,7 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Act & Assert - Should not throw
         await alloySink.LogInfoAsync("Test message", new Dictionary<string, object> { { "component", "test" } });
@@ -42,7 +43,7 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Act
         await alloySink.LogInfoAsync("Message 1");
@@ -68,7 +69,7 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         var attributes = new Dictionary<string, object>
         {
@@ -93,9 +94,9 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
-        var exception = new InvalidOperationException("Test exception with inner", 
+        var exception = new InvalidOperationException("Test exception with inner",
             new ArgumentException("Inner exception"));
 
         // Act & Assert - Should not throw
@@ -120,15 +121,15 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Act
         await alloySink.LogInfoAsync("Message 1");
         await alloySink.LogInfoAsync("Message 2");
-        
+
         // Flush should send the pending logs
         await alloySink.FlushAsync();
-        
+
         // Assert - Should complete without throwing
         await alloySink.FlushAsync(); // Multiple flushes should be safe
     }
@@ -147,11 +148,11 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Act - Log from multiple threads concurrently
         var tasks = new List<Task>();
-        
+
         for (int i = 0; i < 10; i++)
         {
             int threadId = i;
@@ -187,14 +188,14 @@ public class AlloySinkIntegrationTests
             BatchInterval = TimeSpan.FromSeconds(1)
         };
 
-        var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Add some logs
         alloySink.LogInfoAsync("Message before dispose").Wait();
 
         // Act & Assert - Should not throw
         alloySink.Dispose();
-        
+
         // Multiple disposes should be safe
         alloySink.Dispose();
     }
@@ -209,7 +210,7 @@ public class AlloySinkIntegrationTests
             EnableBatching = false
         };
 
-        var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
         alloySink.Dispose();
 
         // Act & Assert - Should not throw
@@ -236,7 +237,7 @@ public class AlloySinkIntegrationTests
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
 
-        using var alloySink = new Deneblab.AlloySink.AlloySink(options);
+        using var alloySink = new Deneblab.AlloySink.AlloySink(options, NullLoggerFactory.Instance);
 
         // Act - Send more logs than batch size
         var logCount = batchSize + 2;

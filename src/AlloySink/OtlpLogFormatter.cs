@@ -11,7 +11,7 @@ public static class OtlpLogFormatter
         if (!logs.Any()) return string.Empty;
 
         var firstLog = logs.First();
-        
+
         var otlpLog = new
         {
             resourceLogs = new[]
@@ -46,9 +46,9 @@ public static class OtlpLogFormatter
             }
         };
 
-        return JsonSerializer.Serialize(otlpLog, new JsonSerializerOptions 
-        { 
-            WriteIndented = false 
+        return JsonSerializer.Serialize(otlpLog, new JsonSerializerOptions
+        {
+            WriteIndented = false
         });
     }
 
@@ -97,7 +97,7 @@ public static class OtlpLogFormatter
                 bool b => new { boolValue = b },
                 _ => new { stringValue = JsonSerializer.Serialize(attribute.Value) }
             };
-            
+
             attributes.Add(new { key = attribute.Key, value });
         }
 

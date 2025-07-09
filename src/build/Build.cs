@@ -130,14 +130,14 @@ class Build : NukeBuild
         {
             return envVersion;
         }
-        
+
         // Try to use AbcVersion for semantic versioning
         try
         {
             var output = ProcessTasks.StartProcess("abcversion", "-p semversion")
                 .AssertWaitForExit()
                 .Output.Select(x => x.Text).FirstOrDefault();
-            
+
             if (!string.IsNullOrWhiteSpace(output))
             {
                 return output.Trim();
@@ -147,7 +147,7 @@ class Build : NukeBuild
         {
             // AbcVersion not available, fallback to git-based versioning
         }
-        
+
         // Fallback to base version
         return Version ?? "1.0.0";
     }

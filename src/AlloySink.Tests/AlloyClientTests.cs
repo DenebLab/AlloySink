@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Xunit;
 
 using Deneblab.AlloySink;
@@ -19,7 +20,7 @@ public class AlloyClientTests
         };
 
         // Act
-        using var client = new AlloyClient(options);
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
 
         // Assert - Constructor should not throw
         Assert.NotNull(client);
@@ -30,7 +31,7 @@ public class AlloyClientTests
     {
         // Arrange
         var options = new AlloySinkOptions();
-        using var client = new AlloyClient(options);
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
 
         // Act
         var result = await client.SendLogsAsync(Array.Empty<LogEntry>());
@@ -49,9 +50,9 @@ public class AlloyClientTests
             MaxRetries = 1, // Minimize test time
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
-        
-        using var client = new AlloyClient(options);
-        
+
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
+
         var logEntries = new[]
         {
             new LogEntry
@@ -83,9 +84,9 @@ public class AlloyClientTests
             MaxRetries = 3,
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
-        
-        using var client = new AlloyClient(options);
-        
+
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
+
         var logEntries = new[]
         {
             new LogEntry
@@ -103,14 +104,14 @@ public class AlloyClientTests
 
         // Act
         var result = await client.SendLogsAsync(logEntries);
-        
+
         var endTime = DateTime.UtcNow;
         var elapsed = endTime - startTime;
 
         // Assert
         Assert.False(result); // Should fail
         // Should take at least 2 retry delays (10ms * 2) but account for test timing variance
-        Assert.True(elapsed.TotalMilliseconds >= 15); 
+        Assert.True(elapsed.TotalMilliseconds >= 15);
     }
 
     [Fact]
@@ -118,11 +119,11 @@ public class AlloyClientTests
     {
         // Arrange
         var options = new AlloySinkOptions();
-        var client = new AlloyClient(options);
+        var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
 
         // Act & Assert
         client.Dispose(); // Should not throw
-        
+
         // Multiple disposes should also not throw
         client.Dispose();
     }
@@ -137,11 +138,11 @@ public class AlloyClientTests
             MaxRetries = 1,
             RetryDelay = TimeSpan.FromMilliseconds(10)
         };
-        
-        using var client = new AlloyClient(options);
-        
+
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
+
         var exception = new InvalidOperationException("Test exception");
-        
+
         var logEntry = new LogEntry
         {
             Timestamp = DateTimeOffset.UtcNow,
@@ -182,7 +183,7 @@ public class AlloyClientTests
         var options = new AlloySinkOptions { AlloyEndpoint = endpoint };
 
         // Act & Assert
-        using var client = new AlloyClient(options);
+        using var client = new AlloyClient(options, NullLogger<AlloyClient>.Instance);
         Assert.NotNull(client);
     }
 }

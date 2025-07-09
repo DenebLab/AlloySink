@@ -64,7 +64,7 @@ public static class TestHelpers
             throw new InvalidOperationException("resourceLogs array should not be empty");
 
         var resourceLog = resourceLogs[0];
-        
+
         if (!resourceLog.TryGetProperty("resource", out _))
             throw new InvalidOperationException("Missing resource property");
 
@@ -72,7 +72,7 @@ public static class TestHelpers
             throw new InvalidOperationException("Missing scopeLogs property");
 
         var scopeLog = scopeLogs[0];
-        
+
         if (!scopeLog.TryGetProperty("logRecords", out var logRecords))
             throw new InvalidOperationException("Missing logRecords property");
 
@@ -81,8 +81,8 @@ public static class TestHelpers
     }
 
     public static async Task<bool> WaitForConditionAsync(
-        Func<bool> condition, 
-        TimeSpan timeout, 
+        Func<bool> condition,
+        TimeSpan timeout,
         TimeSpan? interval = null)
     {
         var checkInterval = interval ?? TimeSpan.FromMilliseconds(50);

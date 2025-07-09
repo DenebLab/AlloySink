@@ -32,22 +32,22 @@ public class OtlpLogFormatterTests
 
         // Assert
         Assert.NotEmpty(json);
-        
+
         var document = JsonDocument.Parse(json);
         var root = document.RootElement;
-        
+
         Assert.True(root.TryGetProperty("resourceLogs", out var resourceLogs));
         Assert.Equal(JsonValueKind.Array, resourceLogs.ValueKind);
         Assert.Equal(1, resourceLogs.GetArrayLength());
-        
+
         var resourceLog = resourceLogs[0];
         Assert.True(resourceLog.TryGetProperty("resource", out var resource));
         Assert.True(resourceLog.TryGetProperty("scopeLogs", out var scopeLogs));
-        
+
         var scopeLog = scopeLogs[0];
         Assert.True(scopeLog.TryGetProperty("logRecords", out var logRecords));
         Assert.Equal(1, logRecords.GetArrayLength());
-        
+
         var logRecord = logRecords[0];
         Assert.True(logRecord.TryGetProperty("body", out var body));
         Assert.Equal("Test message", body.GetProperty("stringValue").GetString());
@@ -90,7 +90,7 @@ public class OtlpLogFormatterTests
             .GetProperty("resourceLogs")[0]
             .GetProperty("scopeLogs")[0]
             .GetProperty("logRecords");
-        
+
         Assert.Equal(2, logRecords.GetArrayLength());
         Assert.Equal("First message", logRecords[0].GetProperty("body").GetProperty("stringValue").GetString());
         Assert.Equal("Second message", logRecords[1].GetProperty("body").GetProperty("stringValue").GetString());
@@ -127,7 +127,7 @@ public class OtlpLogFormatterTests
 
         var hasExceptionType = false;
         var hasExceptionMessage = false;
-        
+
         foreach (var attr in attributes.EnumerateArray())
         {
             var key = attr.GetProperty("key").GetString();
@@ -142,7 +142,7 @@ public class OtlpLogFormatterTests
                 Assert.Equal("Test exception", attr.GetProperty("value").GetProperty("stringValue").GetString());
             }
         }
-        
+
         Assert.True(hasExceptionType);
         Assert.True(hasExceptionMessage);
     }
@@ -188,19 +188,19 @@ public class OtlpLogFormatterTests
             var value = attr.GetProperty("value");
             if (key != null) foundAttributes[key] = value;
         }
-        
+
         Assert.True(foundAttributes.ContainsKey("userId"));
         Assert.Equal("user-123", foundAttributes["userId"].GetProperty("stringValue").GetString());
-        
+
         Assert.True(foundAttributes.ContainsKey("count"));
         Assert.Equal(5, foundAttributes["count"].GetProperty("intValue").GetInt32());
-        
+
         Assert.True(foundAttributes.ContainsKey("success"));
         Assert.True(foundAttributes["success"].GetProperty("boolValue").GetBoolean());
-        
+
         Assert.True(foundAttributes.ContainsKey("score"));
         Assert.Equal(95.5, foundAttributes["score"].GetProperty("doubleValue").GetDouble());
-        
+
         Assert.True(foundAttributes.ContainsKey("metadata"));
         var metadataJson = foundAttributes["metadata"].GetProperty("stringValue").GetString();
         Assert.Contains("web", metadataJson);
