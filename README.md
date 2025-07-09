@@ -5,12 +5,15 @@ A lightweight .NET 8.0 C# library for sending structured logs directly to Grafan
 ## Features
 
 - **Direct OTLP integration** - Send logs directly to Grafana Alloy (port 4318)
-- **Semantic versioning** - Automated with AbcVersion tool
+- **Multiple authentication types** - Basic, Bearer, and Custom authentication support
+- **SSL/TLS security** - Production-safe certificate validation with debug bypass
+- **Async disposal pattern** - Proper resource cleanup with timeout protection
+- **HTTP/2 optimization** - Connection pooling and keep-alive settings
 - **Flexible attributes** - Generic `Dictionary<string, object>` for any data
 - **Batch processing** - Configurable batch size and intervals
 - **Retry logic** - Robust error handling with exponential backoff
 - **Thread-safe design** - Concurrent logging support
-- **Comprehensive testing** - 54 tests covering all scenarios ✅
+- **Comprehensive testing** - 59 tests covering all scenarios ✅
 - **Production ready** - Used in production environments
 
 ## Quick Start
@@ -20,12 +23,12 @@ A lightweight .NET 8.0 C# library for sending structured logs directly to Grafan
 Install from NuGet:
 
 ```bash
-dotnet add package AlloySink
+dotnet add package Deneblab.AlloySink
 ```
 
 Or via Package Manager:
 ```powershell
-Install-Package AlloySink
+Install-Package Deneblab.AlloySink
 ```
 
 ### Basic Usage
@@ -77,6 +80,77 @@ catch (Exception ex)
 await alloySink.FlushAsync();
 ```
 
+## Authentication & Security
+
+### Authentication Types
+
+AlloySink supports multiple authentication methods:
+
+#### Basic Authentication
+```csharp
+var options = new AlloySinkOptions
+{
+    AlloyEndpoint = "https://alloy.example.com:4318",
+    AuthorizationType = AlloySinkAuthorizationType.Basic,
+    Username = "your-username",
+    Password = "your-password"
+};
+```
+
+#### Bearer Token Authentication
+```csharp
+var options = new AlloySinkOptions
+{
+    AlloyEndpoint = "https://alloy.example.com:4318",
+    AuthorizationType = AlloySinkAuthorizationType.Bearer,
+    Token = "your-bearer-token"
+};
+```
+
+#### Custom Authentication Header
+```csharp
+var options = new AlloySinkOptions
+{
+    AlloyEndpoint = "https://alloy.example.com:4318",
+    AuthorizationType = AlloySinkAuthorizationType.Custom,
+    CustomAuthorizationHeader = "ApiKey your-api-key"
+};
+```
+
+### SSL Certificate Configuration
+
+For production environments, SSL certificates are always validated. For development/testing scenarios, you can bypass certificate validation:
+
+```csharp
+var options = new AlloySinkOptions
+{
+    AlloyEndpoint = "https://localhost:4318",
+    AcceptAnyCertificate = true,  // Only works when IsDebugMode = true
+    IsDebugMode = true            // Set to false in production
+};
+```
+
+⚠️ **Security Note**: SSL certificate bypass only works when `IsDebugMode = true`. In production builds, certificates are always validated regardless of the `AcceptAnyCertificate` setting.
+
+### HTTP Client Configuration
+
+AlloySink uses an optimized HTTP client with the following features:
+
+- **HTTP/2 Support**: Enabled by default for better performance
+- **Connection Pooling**: Connections are reused for 10 minutes
+- **Keep-Alive**: Optimized ping settings for persistent connections
+- **Timeout Protection**: Configurable request timeout (default: 30 seconds)
+
+```csharp
+var options = new AlloySinkOptions
+{
+    AlloyEndpoint = "https://alloy.example.com:4318",
+    RequestTimeout = TimeSpan.FromSeconds(60),  // Custom timeout
+    MaxRetries = 5,                             // Retry failed requests
+    RetryDelay = TimeSpan.FromSeconds(2)        // Delay between retries
+};
+```
+
 ## Configuration
 
 ### AlloySinkOptions
@@ -92,6 +166,14 @@ await alloySink.FlushAsync();
 | `MaxRetries` | `3` | Maximum retry attempts for failed requests |
 | `RetryDelay` | `1 second` | Delay between retry attempts |
 | `EnableBatching` | `true` | Enable/disable batching |
+| `RequestTimeout` | `30 seconds` | HTTP request timeout |
+| `AcceptAnyCertificate` | `false` | Allow invalid SSL certificates (debug only) |
+| `IsDebugMode` | `true` (debug) / `false` (release) | Enable debug features |
+| `AuthorizationType` | `None` | Authentication method (None/Basic/Bearer/Custom) |
+| `Username` | `""` | Username for Basic authentication |
+| `Password` | `""` | Password for Basic authentication |
+| `Token` | `""` | Token for Bearer authentication |
+| `CustomAuthorizationHeader` | `""` | Custom authorization header value |
 
 ## API Reference
 
@@ -189,18 +271,38 @@ AlloySink is thread-safe and can be used concurrently from multiple threads. Int
 
 ## Disposal
 
-Always dispose of AlloySink instances to ensure proper cleanup:
+AlloySink implements both `IDisposable` and `IAsyncDisposable` patterns for proper resource cleanup:
 
+### Synchronous Disposal
 ```csharp
 using var alloySink = new AlloySink(options);
-// or
+// Automatic disposal when scope ends
+
+// Or manual disposal
 alloySink.Dispose();
 ```
 
-The dispose method will:
-1. Stop background batching timer
-2. Flush all pending logs
-3. Clean up HTTP client resources
+### Asynchronous Disposal (Recommended)
+```csharp
+await using var alloySink = new AlloySink(options);
+// Automatic async disposal when scope ends
+
+// Or manual async disposal
+await alloySink.DisposeAsync();
+```
+
+### Disposal Process
+
+The disposal process includes:
+1. **Stop log acceptance** - New logs are ignored
+2. **Complete the channel** - Signal background processor to finish
+3. **Cancel background processing** - Stop with timeout protection
+4. **Flush pending logs** - Send any remaining batched logs
+5. **Clean up resources** - Dispose HTTP client and cancellation tokens
+
+**Timeout Protection**: The async disposal waits up to 10 seconds for background processing to complete before forcing cleanup, preventing deadlocks.
+
+⚠️ **Important**: Always dispose AlloySink instances to ensure all logs are sent and resources are properly cleaned up.
 
 ## Build and Development
 
@@ -215,7 +317,7 @@ cd AlloySink
 ### Build Targets
 
 - `./build.sh` - Default build (Compile)
-- `./build.sh --target Test` - Run all tests (54 tests ✅)
+- `./build.sh --target Test` - Run all tests (59 tests ✅)
 - `./build.sh --target Pack` - Create NuGet package
 - `./build.sh --target CI` - Full pipeline (Clean + Test + Pack)
 
@@ -230,7 +332,7 @@ cd AlloySink
 
 - **CI**: Runs on push to main/develop branches
 - **Publishing**: Automatic NuGet publishing on production branch
-- **Testing**: All 54 tests must pass before publishing
+- **Testing**: All 59 tests must pass before publishing
 
 ## Requirements
 

@@ -35,7 +35,8 @@
       "Bash(/mnt/w/DenebLab/AlloySink/.nuke/temp/dotnet-unix/dotnet --list-runtimes)",
       "Bash(export PATH=\"$HOME/.dotnet:$PATH\")",
       "Bash(~/.dotnet/dotnet:*)",
-      "Bash(dotnet format:*)"
+      "Bash(dotnet format:*)",
+      "Bash(powershell.exe:*)"
     ],
     "deny": []
   }
