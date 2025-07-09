@@ -25,7 +25,7 @@ This guide explains how to publish AlloySink to NuGet using GitHub Actions.
    - Install AbcVersion tool for semantic versioning
    - Calculate version using `abcversion -p semversion` 
    - Build and test the library (54 tests ✅)
-   - Package the NuGet package with semantic version
+   - Package the NuGet package with semantic version as `Deneblab.AlloySink`
    - Publish to NuGet.org
    - All automated with zero manual intervention
 
@@ -96,7 +96,7 @@ The library uses semantic versioning (SemVer):
 
 The NuGet package is configured in `src/AlloySink/AlloySink.csproj`:
 
-- **Package ID**: `AlloySink`
+- **Package ID**: `Deneblab.AlloySink`
 - **Authors**: `Piotr Kudrel`
 - **Company**: `DenebLab`
 - **License**: `MIT`
@@ -128,8 +128,8 @@ The NuGet package is configured in `src/AlloySink/AlloySink.csproj`:
 
 After publishing, verify:
 
-1. **NuGet.org**: Package appears at https://www.nuget.org/packages/AlloySink/
-2. **Installation**: `dotnet add package AlloySink --version X.X.X`
+1. **NuGet.org**: Package appears at https://www.nuget.org/packages/Deneblab.AlloySink/
+2. **Installation**: `dotnet add package Deneblab.AlloySink --version X.X.X`
 3. **Functionality**: Test basic usage in a sample project
 
 ## Best Practices

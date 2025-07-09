@@ -9,7 +9,7 @@
     <AssemblyName>Deneblab.AlloySink</AssemblyName>
     
     <!-- Package Metadata -->
-    <PackageId>AlloySink</PackageId>
+    <PackageId>Deneblab.AlloySink</PackageId>
     <Title>AlloySink</Title>
     <Authors>Piotr Kudrel</Authors>
     <Company>DenebLab</Company>
