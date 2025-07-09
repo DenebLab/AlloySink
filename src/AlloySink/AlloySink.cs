@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Deneblab.AlloySink;
 
-public class AlloySink : IAlloySink
+public class AlloySink : IAlloySink, IAsyncDisposable
 {
     private Task _backgroundProcessor;
     private readonly CancellationTokenSource _cancellationTokenSource;
@@ -51,6 +51,11 @@ public class AlloySink : IAlloySink
 
     public void Dispose()
     {
+        DisposeAsync().AsTask().GetAwaiter().GetResult();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
         if (_disposed) return;
 
         _disposed = true;
@@ -68,15 +73,21 @@ public class AlloySink : IAlloySink
             // Channel already closed
         }
 
-        _cancellationTokenSource.Cancel();
+        await _cancellationTokenSource.CancelAsync();
 
         try
         {
-            _backgroundProcessor.GetAwaiter().GetResult();
+            // Wait for background processor with timeout to prevent deadlock
+            using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            await _backgroundProcessor.WaitAsync(timeoutCts.Token);
         }
         catch (OperationCanceledException)
         {
-            // Expected
+            // Expected when cancelled or timeout
+        }
+        catch (TimeoutException)
+        {
+            // Timeout reached, continue with cleanup
         }
 
         _client?.Dispose();

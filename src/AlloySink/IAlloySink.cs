@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Deneblab.AlloySink;
 
-public interface IAlloySink : IDisposable
+public interface IAlloySink : IDisposable, IAsyncDisposable
 {
     Task LogAsync(LogLevel level, string message, Dictionary<string, object>? attributes = null);
     Task LogInfoAsync(string message, Dictionary<string, object>? attributes = null);
